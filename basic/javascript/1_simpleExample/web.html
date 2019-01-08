@@ -1,0 +1,19 @@
+<!DOCTYPE HTML>
+<HEAD>
+	<TITLE>getElementById</TITLE>
+	<meta charset=utf-8>
+</HEAD>
+	<body>
+	<p id="p1">js可以通过getElementById()来获得HTML里面指定了id属性的元素</p>
+	<p>获得的元素，如果想要改变css属性就使用 obj.style.property,即加上.style之后访问css属性</p>
+	<p>或者使用obj.innerHTML属性来改变标签对之间的内容</p>
+	<script>
+		document.getElementById("p1").style.color="green";
+		document.write("<p>可以通过document.write()函数来添加标签到html中</p>");		
+		document.write("<a href=\"http://www.baidu.com\">click here to jump to baidu</a>");
+		alert("你还可以通过alert()函数来弹出对话框");
+		console.log("还可以通过console.log来输出到控制台，但是你要打开网页控制台才能看到哦");	
+	</script>
+	</body>
+</HTML>
+
