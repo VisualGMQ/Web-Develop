@@ -1,0 +1,101 @@
+<html>
+<head>
+	<title> form </title>
+	<meta charset='utf-8'>
+	<script>
+		function bodyonload(){
+			window.alert("web started");
+		}
+		function b1click(){
+			window.location.href="http://www.baidu.com"
+		}
+		function submittext(){
+			var inputtext = document.getElementById("inptext");
+			var inputarea = document.getElementById("inarea");
+			window.alert("使用input创建的文本框内容为:"+inputtext.value+"\n使用textarea创建的文本框内容为:"+inputarea.innerHTML+"\n这两者的区别就是：input创建的只可以输入一行。但是textarea可以输入多行，还可以调整大小。而且input获取输入内容使用的是value属性，textarea使用的是innerHTML。");
+		}
+		function b3click(){
+			window.alert("label有一个属性for可以指定一个id，这样这个label就会在这个id的表单前面显示了.");
+		}
+		function bfileclick(){
+			window.alert(document.getElementById("filediag").value);
+		}
+		function bhclick(){
+			document.getElementById("hidden").type="text";
+		}
+		function b5click(){
+			window.alert(document.getElementById("range").value);
+		}
+		function radioclick(){
+			var radios = document.getElementsByName("rad");
+			for(var i=0;i<radios.length;i++)
+				if(radios[i].checked)
+					window.alert("you selected "+radios[i].value);
+		}
+		function cbclick(){
+			var che = document.getElementsByName("cb");
+			var str="";
+			for(var i=0;i<che.length;i++)
+				if(che[i].checked)
+					str+=che[i].value+" ";
+			window.alert("you selected "+str);
+		}
+		function seclick(){
+			var select = document.getElementById("se");
+			window.alert("you selected "+select.selectedIndex+" "+select.value);
+		}
+	</script>
+</head>
+<body onload="bodyonload()">
+	<h1 style="color:blue">DOM表单</h1>
+	<button id="b1" onclick="b1click()">通过ID找到这个按钮<br/>click to jump to baidu</button>
+	<form action="">
+		<fieldset>
+			<legend>input boxes</legend>
+				input box:<input type="text" id="inptext" value="please input something">
+				input area:<textarea id="inarea">please input somthing</textarea>
+				text:<input type="text" value="please input something">
+				<br/>
+			<input type="button" id="b2" value="输入完之后点这里" onclick="submittext()">
+		</fieldset>
+		<label for="b3">this is a button</label>
+		<button id="b3" onclick="b3click()">点这里看到label标签说明</button>
+		<br/>
+		<input type="file" id="filediag">
+		<input type="button" id="bfile" value="点这里看看你选了什么文件" onclick="bfileclick()">
+		<br/>
+		<input type="button" id="bhideen" value="其实这里有一个隐藏的表单，只是你看不到。点击我来显示" onclick="bhclick()">
+		<input type="hidden" id="hidden" value="I am hidden!">
+		<br/>
+		<label for="psd">密码框</label>
+		<input type="password" id="psd">
+		<br/>
+		<input type="range" id="range" min="1" max="100">
+		<input type="button" id="b5" onclick="b5click()" value="点击查看滑动条位置">
+		<input type="number" min="1" max="50">
+		<br/>
+		<input type="radio" name="rad" value="radio1">radio1
+		<input type="radio" name="rad" value="radio2">radio2
+		<input type="radio" name="rad" value="radio3">radio3
+		<input type="radio" name="rad" value="radio4">radio4
+		<br/>
+		<input type="button" id="bradio" onclick="radioclick()" value="点这里看看你选了什么">
+		<br/>
+		<fieldset>
+			<legend>checkboxes</legend>
+			<input type="checkbox" name="cb" value="checkbox1">checkbox1
+			<input type="checkbox" name="cb" value="checkbox2">checkbox2
+			<input type="checkbox" name="cb" value="checkbox3">checkbox3
+			<input type="checkbox" name="cb" value="checkbox4">checkbox4
+			<button id="cbb" onclick="cbclick()">点这里看看你选了什么</button>
+		</fieldset>
+		<select id="se">
+			<option value="text1">Text1</option>
+			<option value="text2">Text2</option>
+			<option value="text3">Text3</option>
+			<option value="text4">Text4</option>
+		</select>
+		<input type="button" onclick="seclick()" value="点这里看看你选了什么">
+	</form>
+</body>
+</html>

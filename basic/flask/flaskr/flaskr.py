@@ -8,7 +8,7 @@ app = Flask('welcome')
 def welcome():
     db = sqlite3.connect('domi.db')
     cursor = db.cursor()
-    domicol = cursor.execute('SELECT DISTINCT * FROM domitory ORDER BY vote')
+    domicol = cursor.execute('SELECT DISTINCT * FROM domitory ORDER BY vote DESC')
     domidata = domicol.fetchall()
     return render_template('show_welcome.html', data=domidata)
 
