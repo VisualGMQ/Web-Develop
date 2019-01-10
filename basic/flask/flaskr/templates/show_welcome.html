@@ -1,0 +1,21 @@
+<DOCTYPE HTML>
+<head>
+	<title>welcome my site</title>
+	<meta charset=utf-8>
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css')}}">
+	<script>
+        function b1click(){
+            window.location.href="{{url_for('another')}}";
+        }
+    </script>
+</head>
+<body>
+    <p>宿舍排名</p>
+	<ul>
+{%for domi in data%}
+	<li>{{domi[1]}}:{{domi[2]}}</li>
+{%endfor%}
+	</ul>
+	<button id="b1" onclick="b1click()">click to jump another page</button>
+</body>
+</HTML>
