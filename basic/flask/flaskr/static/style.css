@@ -1,7 +1,18 @@
-li {
-	color:white;
+body {
+	/*background-color:grey;*/
+	background-image:url('src/background.jpg');
+	background-repeat:repeat-x repeat-y;
 }
 
-body {
-	background-color:grey;
+.domiul {
+    margin:auto;
+}
+
+.domiul .tit{
+    color:red;
+}
+
+#b1{
+    display:block;
+    margin:0 auto;
 }

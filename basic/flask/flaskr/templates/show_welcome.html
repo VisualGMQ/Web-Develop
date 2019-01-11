@@ -4,18 +4,32 @@
 	<meta charset=utf-8>
 	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css')}}">
 	<script>
-        function b1click(){
-            window.location.href="{{url_for('another')}}";
+        function gotologin(){
+        	location.href={{url_for('login')}}
         }
     </script>
 </head>
 <body>
-    <p>宿舍排名</p>
-	<ul>
+	<center><h2>宿舍排名</h2>	</center>
+	<div class="domiul">
+	<table align="center" border="1" cellpadding="20">
+		<tr align="center">
+			<th class="tit">排名</th>
+			<th class="tit">宿舍</th>
+			<th class="tit">票数</th>
+		</tr>
 {%for domi in data%}
-	<li>{{domi[1]}}:{{domi[2]}}</li>
+		<tr align="center">
+			<td>{{loop.index}}</td>
+			<td>{{domi[1]}}</td>
+			<td>{{domi[2]}}</td>
+		</tr>
 {%endfor%}
-	</ul>
-	<button id="b1" onclick="b1click()">click to jump another page</button>
+	</table>
+	</div>
+	<br/>
+	<form action="">
+		<center><input type="button" value="管理员登陆" onclick="gotologin()"></center>
+	</form>
 </body>
 </HTML>

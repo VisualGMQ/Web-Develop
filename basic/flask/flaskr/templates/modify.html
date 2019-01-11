@@ -1,0 +1,23 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>修改数据页面</title>
+    <link type="text/css" rel="stylesheet" href="{{url_for('static',filename='style.css')}}">
+</head>
+<body>
+    <h1 align="center">宿舍投票信息修改页面</h1>
+        <table border="1" cellpadding="20" align="center">
+            <caption>信息修改</caption>
+            <tr align="center">
+                <th>宿舍</th>
+                <th>投票</th>
+            </tr>
+            {%for domi in data%}
+            <tr align="center">
+                <td><b>{{domi[1]}}</b></td>
+                <td>{{domi[2]}}<input type="button" value="修改"></td>
+            </tr>
+            {%endfor%}
+        </table>
+</body>
+</html>
