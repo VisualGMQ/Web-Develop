@@ -1,0 +1,51 @@
+<html>
+<head>
+	<title>盒状模型</title>
+	<meta charset=utf-8>
+</head>
+<body>
+	<h1 style="color:green;align:center">盒状模型</h1>
+	<hr/>
+	<center><img src="src/box-model.jpg" alt="a box model picture"></img></center>
+	<center><div style="margin:0px;padding:0px;content:200px;border:10px groove blue">这是一个消去了margin和padding的容器<div></center>
+	<p><b>首先看看border</b></p>
+	<ul style="list-style-type: square">
+	<li style="border:1px solid black">边框可以有各种样式</li>
+		<ul style="list-style-type: circle">
+			<li style="border: 1px double black">double</li>
+			<li style="border: 1px dashed black">dashed</li>
+			<li style="border: 1px groove black">groove</li>
+			<li style="border: 1px dotted black">dotted</li>
+			<li style="border: 1px inset black">inset</li>
+			<li style="border: 1px outset black">outset</li>
+			<li style="border-style: ridge">ridge</li>
+		</ul>
+		<li style="border-width:10px; border-style:solid">边框还可以有宽度</li>
+		<li style="border-color:blue; border-style:solid">边框当然可以有颜色</li>
+		<li style="border-left-width:20px; border-left-style:solid; border-left-color:blue; background-color:green">还可以对单个边框进行设置（一共上下左右四个边框）</li>
+		<li style="border-style: solid groove dashed dotted">你也可以通过border-style一次性设置四个边框或者更少的边框</li>
+	</ul>
+	<p style="border: 2px double red">边框的简写使用border，其后分别是粗细，样式和颜色</p>
+	<hr/>
+	<p><b>再来看看Outline属性，就是边框最外面那个线</b></p>
+	<ul>
+		<li style="outline-color:red; outline-style:solid">首先是颜色属性</li>
+		<li style="outline-style:dashed;outline-style:solid">然后是样式，这个和border一样</li>
+		<li style="outline-width:3px;outline-style:solid">然后是粗细</li>
+		<li style="outline-offset:10px;outline-style:solid;outline-color:blue">最后是偏移量</li>
+	</ul>
+	<p>简写是outline:width style color</p>
+	<hr/>
+	<p><b>margin</b></p>
+	<center><img src="src/VlwVi.png" alt="a picture"></center>
+	<p>margin 清除周围的（外边框）元素区域。margin 没有背景颜色，是完全透明的。</p>
+	<p>也就是说，margin本身就是代表长度，所以margin属性都是给出长度</p>
+	<p style="margin:0px; border-style: solid; outline-color:green; outline-style: solid">这里margin=0px</p>
+	<p style="margin:100px; border-style: solid; outline-color:green; outline-style: solid">这里margin=100px</p>
+	<hr />
+	<p><b>padding</b></p>
+	<p>当元素的 padding（填充）内边距被清除时，所释放的区域将会受到元素背景颜色的填充。</p>
+	<p>所以padding和margin一样，都是直接给出长度</p>
+	<p style="padding:20px; border-style: solid; margin:0px; outline-style: solid">padding=20px</p>
+</body>
+</html>
