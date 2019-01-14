@@ -1,0 +1,26 @@
+<html>
+<head>
+<title>2D 3D transform</title>
+<meta charset=utf-8>
+</head>
+<body>
+	<h1>2D and 3D transform</h1>
+	<p style="color:green">所有的2D3D变化全部由transform属性指定</p>
+	<hr/>
+	<h3>2D transform</h3>
+	<br/>
+	<div style="transform:rotate(30deg);border-style:solid;width:200px;height:200px">这里使用transform:rotate(xxdeg)来旋转30度</div>
+	<div style="position:relative;top:100px;border-style:solid;width:150px;height:150px">这里使用translate移动了元素，这个是没移动的元素</div>
+	<div style="transform:translate(300px,200px);border-style:solid;width:150px;height:150px">这个是移动的元素</div>
+	<div style="position:relative;left:50px;transform:skew(20deg);border-style:solid;width:150px;height:180px">使用skew来进行切片操作。包含两个参数值，分别表示X轴和Y轴倾斜的角度，如果第二个参数为空，则默认为0，参数为负表示向相反方向倾斜。</div>
+	<p>你甚至还可以使用matrix来给出一个矩阵进行线性变换</p>
+	<hr/>
+	<h3>3D transform</h3>
+	<br/>
+	<div style="transform:rotateY(30deg);border-style:solid;width:300px;height:100px">这里使用rotateX()来对Y轴旋转(可能看不出来)</div>
+	<p>你也可以用rotate3d(x,y,z,angle)进行旋转，或者直接给出matrix3d进行线性变换</p>
+	<center><div style="transform:scaleX(2);border-style:solid;width:300px;height:100px">scaleX来对元素进行缩放</div></center>
+	<p>或者直接scale3d(x,y,z)也行</p>
+
+</body>
+</html>

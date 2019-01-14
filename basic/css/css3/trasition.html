@@ -1,0 +1,84 @@
+<html>
+<head>
+	<title>trasition</title>
+	<meta charset=utf-8>
+<style>
+.widthen{
+	background-color:green;
+	width:150px;
+	height:100px;
+	border-style:solid;
+	transition:width 2s;
+}
+.widthen:hover {
+	width:300px;
+}
+
+.heighten{
+	background-color:green;
+	width:150px;
+	height:100px;
+	border-style:solid;
+	transition:height 2s;
+}
+.heighten:hover{
+	height:300px;
+}
+.colortrans{
+	background-color:green;
+	width:150px;
+	height:100px;
+	border-style:solid;
+	transition:background-color 3s;
+}
+.colortrans:hover{
+	background-color:blue;
+}
+.multitrans{
+	background-color:green;
+	width:150px;
+	height:150px;
+	border-style:solid;
+	transition:background-color 3s,transform 3s,width 2s,height 2s;
+}
+.multitrans:hover{
+	background-color:blue;
+	transform:rotate(90deg) translate(200px,-200px);
+	width:300px;
+	height:300px;
+}
+.noshorten{
+	background-color:green;
+	width:200px;
+	height:200px;
+	border-style:solid;
+	transition-property:transform;
+	transition-duration:1.5s;
+	transition-timing-function:linear;
+	transition-delay:2s;
+}
+.noshorten:hover{
+	transform:rotate(180deg);
+}
+</style>
+</head>
+<body>
+	<h1>CSS的过渡和动画</h1>
+	<pre>
+CSS3 过渡是元素从一种样式逐渐改变为另一种的效果。
+要实现这一点，必须规定两项内容：
+指定要添加效果的CSS属性
+指定效果的持续时间。
+使用transition属性来指定.
+	</pre>
+	<hr/>
+	<div class="widthen">这里使用transform:width 3s来进行过渡</div>
+	<div class="heighten">这里使用transform:height 2s来进行过渡</div>
+	<div class="colortrans">这里使用transform:background-color 3s来进行过渡</div>
+	<p>你可以针对任意可以过度的属性进行过渡</p>
+	<div class="multitrans">你也可以多个渐变同时执行，只需要通过，分割每个渐变就行啦</div>
+	<p>其实transition是个简写属性，他的简写为：transition:trasition-property transition-duration transition-timing-function transition-delay;分别为需要过渡的属性，过渡的执行时间，过渡效果的时间曲线（默认为ease），过渡之后的延时时间</p>
+	<div class="noshorten">这里没有使用简写</div>
+
+</body>
+</html>
