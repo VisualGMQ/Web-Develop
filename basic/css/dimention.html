@@ -1,0 +1,87 @@
+<html>
+<head>
+	<title>Dimension</title>
+	<meta charset=utf-8>
+</head>
+<body>
+	<center><h1>Dimension, display and Position</h1></center>
+	<hr/>
+	<p><b>hidden:</b></p>
+	<h3 style="color:blue">Dimension</h3>
+	<p style="height:20px;border-style:solid">this height is 20px</p>
+	<p style="height:40px;border-style:solid">this height is 40px</p>
+	<p style="width:200px;border-style:solid">this width is 200px</p>
+	<p style="border-style:solid;line-height:60px">这个段落的行高为60px<br/>使用的是line-height<br/>hahaha</p>
+	<p>你也可以使用min-height,min-width,max-height,max-width来指定最大（小）高度和宽度</p>	
+	<hr/>
+	<h3 style="color:blue">display</h3>
+	<p style="display:none;height:40px">this is a not display p</p>
+	<p style="visibility:hidden;height:40px">this is invisibility p</p>
+	<p style="color:red">有两种方式让元素不显示</p>
+	<ul>
+		<li>display:none--这个不仅会隐藏元素，也不会让元素占位置</li>
+		<li>visibility:hidden--这个隐藏了还会占据位置</li>
+	</ul>
+	<p><b>display</b></p>
+	<p style="display:inline">你可以通过display属性来改变元素的显示方式，可以有inline，代表将元素变为内联元素，这样就不会自动换行了</p>
+	<p style="display:inline;color:red">比如说这个段落</p>
+	<p>你也可以display:block来将元素变成块级元素，这样就会自动换行</p>
+	<hr/>
+	<h3 style="color:red">Position</h3>
+	<p>使用position来改变元素位置</p>
+	<p>可以有如下选择</p>
+	<ul>
+		<li>static</li>
+		<li>relative</li>
+		<li>fixed</li>
+		<li>absolute</li>
+		<li>sticky</li>
+	</ul>
+	<br/>
+	<p>static为默认值，表示没有定位，按照HTML默认的方式去排放。静态定位的元素不会受到 top, bottom, left, right影响。</p>
+	<p>fixed为固定定位，即使窗口移动，元素也不会移动。你比如右上角的图片。</p>
+	<img src="src/1.bmp" style="position:fixed;top:0px;right:0px" alt="a picture">
+	<p>relative是在默认的位置上进行偏移。但是需要注意的是，即使内容偏移了，原本占的位置还是在原处</p>
+	<p style="position:relative;top:-50">this use relative,offset 50</p>
+	<p>你必如上面那个文本，虽然向上偏移了，但是却还在原处保留着占据的空间</p>
+	<p>abosolute绝对定位，表示相对于最近的父元素进行定位。如果没有父元素，默认为HTML文档（body标签）</p>
+	<p>比如下面这个元素。当你向下划动到它将要出去的时候，你就能知道什么叫做sticky了</p>
+	<p style="position:stiky;top=0px;border-style:solid;background-color:yellow">这是个sticky定位</p>
+	<p>重叠元素使用z-index属性来指定。也就是说给元素指定一个z坐标。坐标是无符号整数。</p>
+	<img src="src/1.bmp" alt="a picture" style="position:absolute;z-index:-1;width:10%;height:10%">
+	<p style="color:red;">this is a picture</p>
+	<p>裁剪元素的外形使用clip:rect(x1,y1,x2,y2),这一半对图像使用</p>
+	<img src="src/1.bmp" alt="a picture" style="clip:rect(0,0,20,20)">
+	<p>最后是overflow，这个属性指出如果内容超出框架的话，如何处理</p>
+	<ul>
+		<li>visible(默认)</li>
+		<li>hidden裁剪超出部分</li>
+		<li>scroll添加滚动条</li>
+		<li>auto如果超出久违scroll，否则为visible</li>
+	</ul>
+	<pre style="width:200;height:50;overflow:hidden;border-style:solid">
+this is a pre tag
+line1
+line2
+line3
+line4
+line5
+line6
+line7
+line8
+line9
+	</pre>
+	<pre style="width:200;height:50;overflow:scroll;border-style:solid">
+this is a pre tag
+line1
+line2
+line3
+line4
+line5
+line6
+line7
+line8
+line9
+	</pre>
+</body>
+</html>

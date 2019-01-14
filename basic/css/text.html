@@ -1,0 +1,46 @@
+<html>
+<head>
+	<title>text and font</title>
+	<meta charset=utf-8>
+	<style>
+		body{
+			background-image:url("src/background.jpg");
+			background-repeat:repeat-x repeat-y;
+		}
+	</style>
+</head>
+<body>
+	<p style="text-indent:50">在CSS里面，每个相关的属性都有自己的简写，比如现在作为背景的图片本来拥有两个style:background-imag和background-repeat。<br/>但是我们可以简写为background:url("src/background.jpg") repeat-x repeat-y;	
+	<hr/>
+	<p style="color:green">接下来看看关于文本的css属性</p>
+	<div>
+	<p><b>这里是text-decoration属性:</b></p>
+	<p style="text-decoration:overline">overline</p>
+	<p style="text-decoration:line-through">line-through</p>
+	<p style="text-decoration:underline">underline</p>
+	<p style="text-decoration:none">none</p>
+	</div>
+	<div>
+	<p><b>这里是对齐方式text-align</b></p>
+	<p style="text-align:right">right</p>
+	<p style="text-align:center">center</p>
+	<p style="text-align:left">left</p>
+	<p style="text-align:justify">justify</p>
+	</div>
+	<p style="text-indent:20">这里使用了缩进text-indent:20</p>
+	<hr/>
+	<p style="color:green">接下来看看关于字体的css属性</p>
+	<div>
+	<p style="font-family:Times New Roman,Georgia,Serif;">font-family</p>
+	<p style="font-size:20px">font-size</p>
+	<p style="font-style:normal">font-style:normal</p>
+	<p style="font-style:italic">font-style:italic</p>
+	<p style="font-style:oblique">font-style:oblique</p>
+	<p style="font-weight:900">font-weight</p>
+	<p style="font-variant:small-cap">font-variant:small-cap</p>
+	</div>
+	<div>
+	<p style="font:italic bold 12px/30px Georgia, serif;">使用font属性一次性指定多个属性</p>
+	</div>
+</body>
+</html>

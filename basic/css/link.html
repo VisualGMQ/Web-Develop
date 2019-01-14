@@ -1,0 +1,26 @@
+<html>
+<head>
+	<title>link</title>
+	<meta charset=utf-8>
+<style>
+	a:link{
+		color:blue;
+	}	
+	a:visited{
+		color:red;
+	}
+	a:hover{
+		text-decoration:none;
+	}
+	a:active{
+		background-color:grey;
+	}
+</style>
+</head>
+<body>
+	<p>对于链接的css，主要作用于a:link,a:visited,a:hover,a:active<br/>这分别对应着链接的未访问状态，访问过状态，鼠标移动到链接上，鼠标点击时。<br/>这四个状态分别可以设定css</p>
+	<a href="http://www.baidu.com" class="link">点这里跳到百度</a>
+	<p><b>注意:</b> hover必须在:link和 a:visited之后定义才有效.</p>
+	<p><b>注意:</b>active必须在hover之后定义是有效的.</p>
+</body>
+</html>
