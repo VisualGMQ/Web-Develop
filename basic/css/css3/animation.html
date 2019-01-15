@@ -1,0 +1,30 @@
+<html>
+<head>
+	<title>animation</title>
+	<meta charset=utf-8>
+<style>
+.ani{
+	width:100px;
+	height:100px;
+	background-color:green;
+	animation:animate 7s;
+}
+
+@keyframes animate{
+	0% {background-color:green;}
+	25%{background-color:yellow;
+	   transform:translate(400px,0px);}
+	50%{transform:rotate(3000deg);}
+	100%{background-color:green;}
+}
+</style>
+</head>
+<body>
+	<hr/>
+	<div class="ani">这是一个动画</div>
+	<hr/>
+	<p>上面的就是一个animation</p>
+	<p>animation使用关键字@keyframes framename{}来进行定义。这是定义关键帧。之后要将关键帧绑定到元素上，使用元素的animation属性即可</p>
+	<p>aniamtion的用法和transform其实差不多，animation也是简写，想要知道更多关于动画的东西见<a href="https://www.runoob.com/css3/css3-animations.html">这里</a></p>
+</body>
+</html>
