@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<head>
+	<title>canva</title>
+	<meta charset=utf-8>
+</head>
+<body>
+	<canvas id="mycanvas" width="400" height="400" style="border-style:solid"></canvas>
+	<img id="image" src="1.png" alt="a image">
+	<p>this is a canvas</p>
+<script>
+	var c = document.getElementById("mycanvas");
+	var ctx = c.getContext("2d");
+	ctx.moveTo(0,0);
+	ctx.lineTo(200,200);
+	ctx.stroke();
+	ctx.beginPath();
+	ctx.arc(200,200,100,0,2*Math.PI);
+	ctx.stroke();
+	ctx.font="20px Arial";
+	ctx.strokeText("Hello World",200,200);
+	ctx.drawImage(document.getElementById("image"),100,0);
+</script>
+</body>
+</html>
