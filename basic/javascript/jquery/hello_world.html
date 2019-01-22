@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<head>
+	<title>hello world of jquery</title>
+	<meta charset=utf-8>
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script>
+	var b1 = document.getElementById("b1");
+	function b1click(){
+		alert($("#inputbox").val());
+	};
+
+	function b2click(){
+		$("#textset").append("<input type=\"textarea\" value=\"I am added\"/><br/>");
+	};
+
+	function b3click(){
+		$("body").append("<input type=\"textarea\" value=\"I am added at the end\"/><br/>");
+	};
+
+	function b4click(){
+		$("#b4").width($("#b4").width()+100);
+	};
+
+	function b5click(){
+		$("#b5").css("background-color","grey");
+	};
+
+	function b6click(){
+		$("#textset").empty();
+		$("#textset").prepend("<legend>textareas</legend>");
+	};
+
+	function aniclick(){
+		$("#ani").animate({width:'+=200px'},1000);
+	};
+</script>
+</head>
+<body>
+	<h1 id="title">JQuery Test</h1>
+	<form action="">
+		<input type="textarea" id="inputbox" value="please input something" style="width:200px"/>
+		<input type="button" id="b1" onclick="b1click()" value="submit"/><br/>
+		<input type="button" id="b2" onclick="b2click()" value="click there to add a textarea"/>
+		<input type="button" id="b3" onclick="b3click()" value="click there to add a at end"/>
+		<fieldset id="textset">
+			<legend>textareas</legend>
+		</fieldset>
+		<input type="button" id="b4" onclick="b4click()" value="click there to widthen myself"/>
+		<input type="button" id="b5" onclick="b5click()" value="click there to change my backgroundcolor"/>
+		<input type="button" id="b6" onclick="b6click()" value="click there to remove all textarea in textset"/>
+	</form>
+	<div style="border-style:solid;width:100px;height:100px;text-align:center" onclick="aniclick()" id="ani">click me</div>
+</body>
+</html>
