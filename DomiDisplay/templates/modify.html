@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>modify</title>
+</head>
+<body onload="onload()">
+    <form action="{{ url_for('logout') }}" method="post">
+        <input type="submit" value="登出"/>
+    </form>
+    <form action="{{ url_for('modify') }}" method="post">
+    <select name="dom" id="select">
+        {% for dom in doms %}
+            <option value="{{ dom[0] }}">{{ dom[0] }}</option>
+        {% endfor %}
+    </select><br/>
+        现在的票数:<p id="curscore"></p>
+        要修改的票数<input type="text" name="score" value="0" width="100px" required/><br/>
+    <input type="submit" value="修改"/>
+    </form>
+    {{ get_flashed_messages() }}
+    <script>
+        function onload(){
+            {% for msg in get_flashed_messages() %}
+                {% if msg=="not number" %}
+                    window.alert("请输入整数");
+                {% endif %}
+                {% if msg=="changed success" %}
+                    window.alert("修改成功");
+                {% endif %}
+                {% if msg=="changed failed" %}
+                    window.alert("修改失败");
+                {% endif %}
+            {% endfor %}
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>login</title>
+    <script src="{{ url_for('static',filename='login.js') }}"></script>
+</head>
+<body onload="onload()">
+    <form action="{{ url_for('login') }}" method="post">
+        <fieldset>
+            <legend>登录界面</legend>
+            <label>用户名</label><input type="text" id="username" name="username" style="width:500px"/><br/>
+            <label>密码</label><input type="text" id="password" name="password" style="width:500px"/><br/>
+            <input type="submit" value="登录"/><input type="button" value="清空" onclick="clearAll()"/>
+        </fieldset>
+    </form>
+    <script>
+         function onload(){
+            {% for msg in get_flashed_messages() %}
+                {% if msg == 'login failed' %}
+                    window.alert("登录错误，请检查你的用户名和密码");
+                {% endif %}
+            {% endfor %}
+        }
+    </script>
+</body>
+</html>
