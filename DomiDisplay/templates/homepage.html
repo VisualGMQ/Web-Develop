@@ -5,6 +5,20 @@
     <title>homepage</title>
 </head>
 <body>
+    <!--search bar-->
+    查找你的寝室：
+    <form action="{{ url_for('homepage') }}" method="post">
+        <input type="text" name="searchdom" value="例如C3C610" required/>
+        <input type="submit" value="查询"/>
+    </form>
+    排序方式：
+    <form action="{{ url_for('homepage') }}">
+        <select name="sortway">
+            <option value="byname">按照寝室名称</option>
+            <option value="byscore">按照分数</option>
+        </select>
+    </form>
+    <!--the table of score of domits-->
     <table border="1px">
         <caption>学生宿舍评比</caption>
         <tbody>
