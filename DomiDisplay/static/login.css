@@ -1,0 +1,86 @@
+.backdiv{
+    border-style:solid;
+    border-radius:25px;
+    box-shadow:10px 10px 10px Silver;
+    border-width:1px;
+    background-color:white;
+    width:400px;
+    height:200px;
+    position:absolute;
+    top:50%;
+    left:50%;
+    margin-left:-200px;
+    margin-top:-200px;
+}
+
+.logintable{
+    width:400px;
+    height:70%;
+    margin:0 auto;
+}
+
+.logintable .infobar{
+    width:70%;
+    border-type:1;
+}
+
+.logintable .infobar:hover{
+    border-color:orange;
+}
+
+.logintable .infobar:link{
+    border-color:black;
+}
+
+.context{
+    background-color:AliceBlue;
+}
+
+.logintable caption{
+    position:relative;
+    top:10px;
+    font-size:25px;
+    text-decoration:boild;
+    text-shadow:0px 0px 5px LightSkyBlue;
+}
+
+.logintable tr{
+    align:center;
+}
+
+.titlebar{
+    color:green;
+    width:100%;
+    height:50px;
+    background-color:white;
+    text-align:left;
+    text-indent:100px;
+    line-height:50px;
+    position:fixed;
+    top:0px;
+    left:0px;
+    border-bottom-style:solid;
+    border-bottom-width:1px;
+    border-bottom-color:LightBlue;
+}
+
+.titlebar img{
+    display:inline;
+    position:relative;
+    top:5px;
+}
+
+.titlebar p{
+    font-size:20px;
+    display:inline;
+}
+
+.titlebar a:hover{
+    text-decoration:none;
+    color:Wheat;
+}
+
+.titlebar a:link{
+    text-decoration:none;
+    color:sandybrown;
+}

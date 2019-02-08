@@ -1,0 +1,81 @@
+.toolbar{
+    text-indent:10px;
+    width:100%;
+    height:45px;
+    background-color:DeepSkyBlue;
+    border-radius:10px;
+    border-shadow:0px 0px 20px DarkGray;
+    position:sticky;
+    top:0;
+}
+
+.toolbar *{
+    display:inline;
+}
+
+.tooltable{
+    width:100%;
+}
+
+.doctable{
+    position:relative;
+    top:50px;
+    margin:0 auto;
+    width:70%;
+}
+
+.doctable tr td a:hover{
+    color:MediumBlue;
+    text-decoration:none;
+}
+
+.doctable tr td a:visited,.doctable tr td a:link{
+    color:DodgerBlue;
+    text-decoration:none;
+}
+
+.doctable .score{
+    font-size:15px;
+    color:DarkOrange;
+}
+
+.doctr{
+    border-style:solid;
+    border-width:2px;
+    border-shadow:5px 5px 15px LightGray;
+    background-color:NavajoWhite;
+}
+
+.context{
+    background-color:WhiteSmoke;
+}
+
+.img{
+    position:relative;
+    top:0;
+    left:0;
+}
+
+.img .bgimg{
+    border-type:none;
+    left:0;
+    top:0;
+}
+
+.img p{
+    position:absolute;
+    z-index:1;
+    top:50%;
+    width:100%;
+    text-align:center;
+    font-size:50px;
+    color:Salmon;
+}
+
+.img .logoimg{
+    position:absolute;
+    z-index:1;
+    top:10%;
+    left:45%;
+}
+

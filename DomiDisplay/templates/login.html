@@ -3,17 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <title>login</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='login.css') }}"/>
     <script src="{{ url_for('static',filename='login.js') }}"></script>
 </head>
-<body onload="onload()">
-    <form action="{{ url_for('login') }}" method="post">
-        <fieldset>
-            <legend>登录界面</legend>
-            <label>用户名</label><input type="text" id="username" name="username" style="width:500px"/><br/>
-            <label>密码</label><input type="text" id="password" name="password" style="width:500px"/><br/>
-            <input type="submit" value="登录"/><input type="button" value="清空" onclick="clearAll()"/>
-        </fieldset>
-    </form>
+<body onload="onload()" class="context">
+    <div class="titlebar">
+        <img src="{{  url_for('static',filename='./images/img') }}/logo.jpeg" alt="logo" width="40px" height="40px"/>
+        <p>安徽理工大学宿舍评比管理登录界面</p>
+        <a href="{{ url_for('homepage') }}">点击回到主页</a>
+    </div>
+    <div class="backdiv">
+        <form action="{{ url_for('login') }}" method="post">
+            <table class="logintable" cellpadding="10px">
+                <caption>登录</caption>
+                <tr align="center">
+                    <td>
+                        <input class="infobar" type="text" id="username" name="username" placeholder="用户名" style="width:100px"/>
+                    </td>
+                </tr>
+                <tr align="center">
+                    <td>
+                        <input class="infobar" type="text" id="password" name="password" placeholder="密码" style="width:100px"/>
+                    </td>
+                </tr>
+                <tr align="center">
+                    <td>
+                        <input class="infobar" type="submit" value="登录"/>
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </div>
     <script>
          function onload(){
             {% for msg in get_flashed_messages() %}

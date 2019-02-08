@@ -3,36 +3,62 @@
 <head>
     <meta charset="UTF-8">
     <title>homepage</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='homepage.css') }}"/>
+    <script>
+        function sortSelectChange(){
+            document.getElementById("sortform").submit();
+        }
+    </script>
 </head>
-<body>
-    <!--search bar-->
+<body class="context">
+    <!--welcome image-->
+    <div class="img">
+        <img class="logoimg" src="{{ url_for('static',filename='./images/img')}}/logo.jpeg" alt="logo" width="120px" height="120px"/>
+            <p><b>安徽理工大学学生宿舍比分</b></p>
+        <img class="bgimg" src="{{url_for('static',filename='./images/img')}}/bgimg.jpg" alt="bgimage" width="100%" height="350px"/>
+     </div>
+    <!--tool bar-->
+    <div class="toolbar">
+ <!--search bar-->
+        <table class="tooltable" width="100%">
+            <tr align="center">
+                <td>
     查找你的寝室：
     <form action="{{ url_for('homepage') }}" method="post">
-        <input type="text" name="searchdom" value="例如C3C610" required/>
-        <input type="submit" value="查询"/>
+        <input type="text" name="searchdom" placeholder="例如C3C610" required/>
+        <input type="submit" placeholder="查询"/>
     </form>
+                    </td>
+                <td>
     排序方式：
-    <form action="{{ url_for('homepage') }}">
-        <select name="sortway">
-            <option value="byname">按照寝室名称</option>
-            <option value="byscore">按照分数</option>
+    <form id="sortform" action="{{ url_for('homepage') }}" method="post">
+        <select name="sortway" onchange="sortSelectChange()">
+            {% if sortway == 1 %}
+                <option value="byscore">按照分数</option>
+                <option value="byname">按照寝室名称</option>
+            {% endif %}
+            {% if sortway == 2 %}
+                <option value="byname">按照寝室名称</option>
+                <option value="byscore">按照分数</option>
+            {% endif %}
         </select>
     </form>
+                </td>
+            </tr>
+        </table>
+    </div>
     <!--the table of score of domits-->
-    <table border="1px">
-        <caption>学生宿舍评比</caption>
-        <tbody>
-            <tr align="center">
-                <th>寝室号</th>
-                <th>票数</th>
+    <table class="doctable" cellspacing="50px">
+            <tr align="center" class="doctr">
+                    <th>寝室号</th>
+                    <th>票数</th>
             </tr>
-            {% for dom in doms %}
-            <tr align="center">
-                <td>{{ dom[0] }}</td>
-                <td>{{ dom[1] }}</td>
-            </tr>
+            {% for dom in infoes %}
+                <tr align="center" class="doctr">
+                        <td><a href="{{ url_for('displayDom',dominame=dom[0]) }}">{{ dom[0] }}</a></td>
+                        <td class="score">{{ dom[1] }}</td>
+                </tr>
             {% endfor %}
-        </tbody>
     </table>
 </body>
 </html>
