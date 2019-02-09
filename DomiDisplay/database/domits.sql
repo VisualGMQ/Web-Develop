@@ -1,0 +1,5 @@
+DROP TABLE IF EXISTS domits;
+CREATE TABLE domits(
+    name STRING NOT NULL PRIMARY KEY,
+    score INTEGER NOT NULL
+);

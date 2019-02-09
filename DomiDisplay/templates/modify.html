@@ -5,9 +5,12 @@
     <title>modify</title>
 </head>
 <body onload="onload()">
+    <!--登出按钮-->
     <form action="{{ url_for('logout') }}" method="post">
         <input type="submit" value="登出"/>
     </form>
+
+    <!--选择寝室修改-->
     <form action="{{ url_for('modify') }}" method="post">
     <select name="dom" id="select">
         {% for dom in doms %}
@@ -19,6 +22,20 @@
     <input type="submit" value="修改"/>
     </form>
     {{ get_flashed_messages() }}
+
+    <!--上传一个Excel文件到文件夹，这个文件用于修改数据库-->
+    <form id="excelupload" enctype="multipart/form-data" action="{{ url_for('uploadexcel') }}" method="post">
+        <p>你上传的文件必须是excel文件</p>
+        <input id="excelfile" type="file" name="excelfile"/>
+        <input id="excelsubmit" type="submit" value="上传"/>
+    </form>
+    <!--上传寝室图片-->
+    <form id="imgupload" enctype="multipart/form-data" action="{{ url_for('uploadimg') }}" method="post">
+        你的想要上传哪个宿舍的图片呢？<input name="docname" id="docname" type="text" placeholder="例如C3C610"/>
+        <input type="file" name="docimg" id="docimg"/>
+        <input type="submit" value="上传图片" id="imgsubmit">
+    </form>
+    <!--js-->
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
     <script>
         $(document).ready(function(){
@@ -33,6 +50,50 @@
                     window.alert("修改失败");
                 {% endif %}
             {% endfor %}
+
+            //upload file failed
+            {% if get_flashed_messages()[0] == 'no file'%}
+                window.alert("请选择要上传的文件");
+            {% endif %}
+            {% if get_flashed_messages()[0] == 'file format error' %}
+                window.alert("文件必须是excel文件(.xlsx,.xls)");
+            {% endif %}
+            {% if get_flashed_messages()[0] == 'save success' %}
+                window.alert("文件上传成功");
+            {% endif %}
+
+            $("#excelsubmit").click(function(){
+                if($("#excelfile").val="")
+                    window.alert("你没有选择上传的excel文件");
+                else
+                    $("#excelupload").submit();
+            });
+
+            //upload image
+            {% if get_flashed_messages()[0] == 'no image' %}
+                window.alert('没有选择图片');
+             {% endif %}
+             {% if get_flashed_messages()[0] == 'no doc' %}
+                window.alert('没有选择宿舍');
+             {% endif %}
+             {% if get_flashed_messages()[0] == 'image failed' %}
+                window.alert('图片上传成功');
+             {% endif %}
+             {% if get_flashed_messages()[0] == 'image success' %}
+                window.alert('图片上传成功');
+             {% endif %}
+
+            $("#imgsubmit").click(function(){
+                if($("#docname").val() == "" || $("#docimg").val() == "")
+                    window.alert("请填入必要的信息");
+                else
+                    $("#imgupload").submit();
+
+             //refactory doms
+             {% if get_flashed_messages()[0] == 'excel file not found'%}
+                window.alert("没有上传的excel可以进行处理");
+             {% endif %}
+            });
         });
     </script>
 </body>

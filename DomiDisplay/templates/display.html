@@ -5,8 +5,11 @@
     <title>display</title>
 </head>
 <body>
-    {# {% for img in  %} #}
-    <img src="{{ url_for('static',filename='./images') }}/{{ img }}/1.bmp" alt="picture"/>
-    {# {% end for%} #}
+    <a href="{{ url_for('homepage') }}">回到主页面</a>
+{{images}}
+    {% for img in images %}
+    <!--<img src="{{ url_for('static',filename='./images/{{}}') }}/{{ img }}/1.bmp" alt="picture"/>-->
+    <img src="{{ url_for('static',filename='./images') }}/{{ dominame }}/{{ img }}" alt="image"/>
+    {% endfor%}
 </body>
 </html>
