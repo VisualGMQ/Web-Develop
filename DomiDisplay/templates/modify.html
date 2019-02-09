@@ -19,8 +19,9 @@
     <input type="submit" value="修改"/>
     </form>
     {{ get_flashed_messages() }}
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
     <script>
-        function onload(){
+        $(document).ready(function(){
             {% for msg in get_flashed_messages() %}
                 {% if msg=="not number" %}
                     window.alert("请输入整数");
@@ -32,7 +33,7 @@
                     window.alert("修改失败");
                 {% endif %}
             {% endfor %}
-        }
+        });
     </script>
 </body>
 </html>

@@ -4,10 +4,13 @@
     <meta charset="UTF-8">
     <title>homepage</title>
     <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='homepage.css') }}"/>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
     <script>
-        function sortSelectChange(){
-            document.getElementById("sortform").submit();
-        }
+        $(document).ready(function(){
+            $(".sortselect").change(function(){$("#sortform").submit()});
+            $(".toolbar").slideDown(1000);
+            $(".docbox").fadeIn(1000);
+        });
     </script>
 </head>
 <body class="context">
@@ -19,46 +22,43 @@
      </div>
     <!--tool bar-->
     <div class="toolbar">
- <!--search bar-->
+        <!--search bar-->
         <table class="tooltable" width="100%">
             <tr align="center">
                 <td>
-    查找你的寝室：
-    <form action="{{ url_for('homepage') }}" method="post">
-        <input type="text" name="searchdom" placeholder="例如C3C610" required/>
-        <input type="submit" placeholder="查询"/>
-    </form>
+                    查找你的寝室：
+                    <form action="{{ url_for('homepage') }}" method="post">
+                        <input type="text" name="searchdom" placeholder="例如C3C610" required/>
+                        <input type="submit" placeholder="查询"/>
+                    </form>
                     </td>
                 <td>
-    排序方式：
-    <form id="sortform" action="{{ url_for('homepage') }}" method="post">
-        <select name="sortway" onchange="sortSelectChange()">
-            {% if sortway == 1 %}
-                <option value="byscore">按照分数</option>
-                <option value="byname">按照寝室名称</option>
-            {% endif %}
-            {% if sortway == 2 %}
-                <option value="byname">按照寝室名称</option>
-                <option value="byscore">按照分数</option>
-            {% endif %}
-        </select>
-    </form>
+                    排序方式：
+                    <form id="sortform" action="{{ url_for('homepage') }}" method="post">
+                        <select name="sortway" class="sortselect">
+                            {% if sortway == 1 %}
+                                <option value="byscore">按照分数</option>
+                                <option value="byname">按照寝室名称</option>
+                            {% endif %}
+                            {% if sortway == 2 %}
+                                <option value="byname">按照寝室名称</option>
+                                <option value="byscore">按照分数</option>
+                            {% endif %}
+                        </select>
+                    </form>
                 </td>
             </tr>
         </table>
     </div>
+
     <!--the table of score of domits-->
-    <table class="doctable" cellspacing="50px">
-            <tr align="center" class="doctr">
-                    <th>寝室号</th>
-                    <th>票数</th>
-            </tr>
-            {% for dom in infoes %}
-                <tr align="center" class="doctr">
-                        <td><a href="{{ url_for('displayDom',dominame=dom[0]) }}">{{ dom[0] }}</a></td>
-                        <td class="score">{{ dom[1] }}</td>
-                </tr>
-            {% endfor %}
-    </table>
+        {% for dom in infoes %}
+            <div class="docbox">
+                <ul class="docul" align="center">
+                    <li class="docli"><p>寝室号:</p><a href="{{ url_for('displayDom',dominame=dom[0]) }}">{{ dom[0] }}</a></li>
+                    <li class="scoreli"><p>票数:</p><p class="scorep">{{ dom[1] }}</p></li>
+                </ul>
+            </div>
+        {% endfor %}
 </body>
 </html>
