@@ -57,13 +57,6 @@ def searchDB(db,table,condition="",fetch=-1,cols='*',OrderBy=None,isDesc=False):
     return info
 
 def doLogin(username, password):
-    '''
-    db = sqlite3.connect(app.config['DATABASE']+"users.db")
-    cursor = db.cursor()
-    cursor.execute('SELECT * FROM users WHERE name=%s' % "'"+username+"'")
-    info = cursor.fetchone()
-    db.close()
-    '''
     info = searchDB('users.db','users',"name=%s" % _tDB(username),fetch=1)
     if info == None:
         return False
@@ -74,11 +67,6 @@ def doLogin(username, password):
             return False
 
 def changeScore(dom,score):
-    '''
-    cursor = db.cursor()
-    cursor.execute('SELECT score FROM domits WHERE name=%s' % '"'+dom+'"')
-    info = cursor.fetchall()
-    '''
     db = sqlite3.connect(app.config['DATABASE'] + 'domis.db')
     cursor = db.cursor()
     info = searchDB(db,'domits',"name=%s" % _tDB(dom))
@@ -94,7 +82,6 @@ def changeScore(dom,score):
 @app.route('/',methods=['POST','GET'])
 def homepage():
     db = sqlite3.connect(app.config['DATABASE']+"domis.db")
-    #cursor = db.cursor()
     sortway=1
     global info
     if request.method == 'POST':

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>test ajax</title>
+</head>
+<body>
+    <p id="text">test ajax</p>
+    <!--<button onclick="ajax()">Change Context</button>-->
+    <input type="button" onclick="ajax()" value="ChangeContext"/>
+
+    <script>
+        function ajax(){
+            var xhr;
+            xhr = new XMLHttpRequest();
+            xhr.onreadystatechange = function(){
+                if (xhr.readyState==4 && xhr.status==200){
+                    document.getElementById("text").innerHTML=xhr.responseText;
+                }
+            };
+            xhr.open("GET","{{ url_for('static',filename='text.txt') }}",true);
+            xhr.send();
+        }
+    </script>
+</body>
+</html>
