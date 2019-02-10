@@ -1,4 +1,4 @@
-from flask import Flask,url_for,render_template,session,request,redirect,flash
+from flask import Flask,url_for,render_template,session,request,redirect,flash,app
 from werkzeug.utils import secure_filename
 import sqlite3
 import os
@@ -107,9 +107,9 @@ def upLoadExcel():
         if not isFileIlligel(filename):
             flash('file format error')
             return redirect(url_for('modify'))
-        file.save(os.path.dirname(__file__) + "/files/" + filename)
+        file.save(os.getcwd() + "/files/" + filename)
         flash('save success')
-        session['excel'] = os.path.dirname(__file__) + "/files/" + filename
+        session['excel'] = os.getcwd() + "/files/" + filename
 
 #上传寝室图片
 def uploadImage():
@@ -213,8 +213,10 @@ def login():
 @app.route('/modify/logout/', methods=['POST'])
 def logout():
     if 'logined' in session:
-        session.pop('logined')
-        session.pop('excel')
+        if 'logined' in session:
+            session.pop('logined')
+        if 'excel' in session:
+            session.pop('excel')
     return redirect(url_for('login'))
 
 @app.route('/modify/uploadexcel/', methods=['POST'])

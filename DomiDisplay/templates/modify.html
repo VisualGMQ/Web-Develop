@@ -3,38 +3,55 @@
 <head>
     <meta charset="UTF-8">
     <title>modify</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='modify.css') }}"/>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='login.css') }}"/>
 </head>
-<body onload="onload()">
-    <!--登出按钮-->
-    <form action="{{ url_for('logout') }}" method="post">
-        <input type="submit" value="登出"/>
-    </form>
+<body onload="onload()" class="context">
+    <!--tool bar-->
+    <div class="titlebar">
+        <img src="{{  url_for('static',filename='./images/img') }}/logo.jpeg" alt="logo" width="40px" height="40px"/>
+        <p>安徽理工大学宿舍评比管理界面</p>
+        <!--登出按钮-->
+        <form action="{{ url_for('logout') }}" method="post">
+            <input type="submit" value="登出"/>
+        </form>
+    </div>
 
-    <!--选择寝室修改-->
-    <form action="{{ url_for('modify') }}" method="post">
-    <select name="dom" id="select">
-        {% for dom in doms %}
-            <option value="{{ dom[0] }}">{{ dom[0] }}</option>
-        {% endfor %}
-    </select><br/>
-        现在的票数:<p id="curscore"></p>
-        要修改的票数<input type="text" name="score" value="0" width="100px" required/><br/>
-    <input type="submit" value="修改"/>
-    </form>
-    {{ get_flashed_messages() }}
+    <!--后台修改功能-->
+    <div class="modifytools">
+        <!--功能1：选择寝室修改,直接修改票数-->
+        <div class="scoremodify">
+            <form action="{{ url_for('modify') }}" method="post">
+                选择要修改的寝室
+            <select name="dom" id="select">
+                {% for dom in doms %}
+                    <option value="{{ dom[0] }}">{{ dom[0] }}</option>
+                {% endfor %}
+            </select><br/>
+                现在的票数:<p id="curscore"></p>
+                要修改的票数<input type="text" name="score" value="0" width="100px" required/><br/>
+            <input type="submit" value="修改"/>
+            </form>
+        </div>
+        {{ get_flashed_messages() }}
 
-    <!--上传一个Excel文件到文件夹，这个文件用于修改数据库-->
-    <form id="excelupload" enctype="multipart/form-data" action="{{ url_for('uploadexcel') }}" method="post">
-        <p>你上传的文件必须是excel文件</p>
-        <input id="excelfile" type="file" name="excelfile"/>
-        <input id="excelsubmit" type="submit" value="上传"/>
-    </form>
-    <!--上传寝室图片-->
-    <form id="imgupload" enctype="multipart/form-data" action="{{ url_for('uploadimg') }}" method="post">
-        你的想要上传哪个宿舍的图片呢？<input name="docname" id="docname" type="text" placeholder="例如C3C610"/>
-        <input type="file" name="docimg" id="docimg"/>
-        <input type="submit" value="上传图片" id="imgsubmit">
-    </form>
+        <!--功能2:上传一个Excel文件到文件夹，这个文件用于修改数据库-->
+        <div class="uploadexcel">
+            <form id="excelupload" enctype="multipart/form-data" action="{{ url_for('uploadexcel') }}" method="post">
+                <p>你上传的文件必须是excel文件</p>
+                <input id="excelfile" type="file" name="excelfile"/>
+                <input id="excelsubmit" type="submit" value="上传"/>
+            </form>
+        </div>
+        <!--功能3：上传寝室图片-->
+        <div class="uploadimage">
+            <form id="imgupload" enctype="multipart/form-data" action="{{ url_for('uploadimg') }}" method="post">
+                你想要上传哪个宿舍的图片呢？<input name="docname" id="docname" type="text" placeholder="例如C3C610"/>
+                <input type="file" name="docimg" id="docimg"/>
+                <input type="submit" value="上传图片" id="imgsubmit">
+            </form>
+        </div>
+    </div>
     <!--js-->
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
     <script>

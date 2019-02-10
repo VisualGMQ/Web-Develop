@@ -3,13 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <title>display</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='display.css') }}"/>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='login.css') }}"/>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $(".imgdiv").fadeIn(2000);
+        });
+    </script>
 </head>
-<body>
-    <a href="{{ url_for('homepage') }}">回到主页面</a>
-{{images}}
+<body class="context">
+    <!--title bar-->
+    <div class="titlebar">
+        <img src="{{  url_for('static',filename='./images/img') }}/logo.jpeg" alt="logo" width="40px" height="40px"/>
+        <p>安徽理工大学宿舍评比——宿舍图片展览</p>
+        <a href="{{ url_for('homepage') }}">点击回到主页</a>
+    </div>
+    <!--dom name-->
+    <div class="dominatename">
+        <b>{{ dominame }}</b>
+    </div>
+    <!-- images -->
     {% for img in images %}
-    <!--<img src="{{ url_for('static',filename='./images/{{}}') }}/{{ img }}/1.bmp" alt="picture"/>-->
-    <img src="{{ url_for('static',filename='./images') }}/{{ dominame }}/{{ img }}" alt="image"/>
+    <div class="imgdiv" align="center">
+        <img src="{{ url_for('static',filename='./images') }}/{{ dominame }}/{{ img }}" alt="image"/>
+    </div>
     {% endfor%}
 </body>
 </html>
