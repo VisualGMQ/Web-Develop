@@ -16,7 +16,7 @@
 <body class="context">
     <!--welcome image-->
     <div class="img">
-        <img class="logoimg" src="{{ url_for('static',filename='./images/img')}}/logo.jpeg" alt="logo" width="120px" height="120px"/>
+        <img class="logoimg" src="{{ url_for('static',filename='./images/img')}}/logo.png" alt="logo" width="120px" height="120px"/>
             <p><b>安徽理工大学学生宿舍比分</b></p>
         <img class="bgimg" src="{{url_for('static',filename='./images/img')}}/bgimg.jpg" alt="bgimage" width="100%" height="350px"/>
      </div>
@@ -31,7 +31,8 @@
                         <input type="text" name="searchdom" placeholder="例如C3C610" required/>
                         <input type="submit" placeholder="查询"/>
                     </form>
-                    </td>
+                </td>
+                {% if isTextSearch == False %}
                 <td>
                     排序方式：
                     <form id="sortform" action="{{ url_for('homepage') }}" method="post">
@@ -47,18 +48,50 @@
                         </select>
                     </form>
                 </td>
+                {% endif %}
+                {% if isTextSearch == True %}
+                <td>
+                    <a class="retHomepage" href="{{ url_for('homepage') }}">点击这里查看所有寝室</a>
+                </td>
+                {% endif %}
             </tr>
         </table>
     </div>
 
     <!--the table of score of domits-->
         {% for dom in infoes %}
+
+            {% if loop.index <=3 and isTextSearch==False %}
+            <a id="domhref" href="{{ url_for('displayDom',dominame= dom[0] ) }}">
+            {% endif %}
+
+            {% if loop.index == 1 and sortway==1 and isTextSearch==False %}
+            <div class="docbox" style="background-color:#FFB90F">
+            {% elif loop.index == 2 and sortway==1 and isTextSearch==False %}
+            <div class="docbox" style="background-color:Silver">
+            {% elif loop.index == 3 and sortway==1 and isTextSearch==False %}
+            <div class="docbox" style="background-color:#4876FF">
+            {% else %}
             <div class="docbox">
-                <ul class="docul" align="center">
-                    <li class="docli"><p>寝室号:</p><a href="{{ url_for('displayDom',dominame=dom[0]) }}">{{ dom[0] }}</a></li>
-                    <li class="scoreli"><p>票数:</p><p class="scorep">{{ dom[1] }}</p></li>
-                </ul>
+            {% endif %}
+                <div class="docrank">
+                {% if sortway != 2 %}
+                {% if rank != None %}
+                    排名:{{ rank }}
+                {% else %}
+                    排名:{{ loop.index }}
+                {% endif %}
+                {% endif %}
+                </div>
+                    <ul class="docul" align="center">
+                        <li class="docli"><p>寝室号:</p>{{ dom[0] }}
+                        <li class="scoreli"><p><b>票数:</b></p><p class="scorep">{{ dom[1] }}</p></li>
+                    </ul>
             </div>
+
+            {% if loop.index <=3 and isTextSearch==False %}
+            </a>
+            {% endif %}
         {% endfor %}
 </body>
 </html>

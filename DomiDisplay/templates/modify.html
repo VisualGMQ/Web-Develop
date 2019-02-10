@@ -9,7 +9,7 @@
 <body onload="onload()" class="context">
     <!--tool bar-->
     <div class="titlebar">
-        <img src="{{  url_for('static',filename='./images/img') }}/logo.jpeg" alt="logo" width="40px" height="40px"/>
+        <img src="{{  url_for('static',filename='./images/img') }}/logo.png" alt="logo" width="40px" height="40px"/>
         <p>安徽理工大学宿舍评比管理界面</p>
         <!--登出按钮-->
         <form action="{{ url_for('logout') }}" method="post">
@@ -21,6 +21,7 @@
     <div class="modifytools">
         <!--功能1：选择寝室修改,直接修改票数-->
         <div class="scoremodify">
+            <p style="text-color:green;text-align:center;font-size:20px">通过寝室修改票数</p>
             <form action="{{ url_for('modify') }}" method="post">
                 选择要修改的寝室
             <select name="dom" id="select">
@@ -28,15 +29,14 @@
                     <option value="{{ dom[0] }}">{{ dom[0] }}</option>
                 {% endfor %}
             </select><br/>
-                现在的票数:<p id="curscore"></p>
+                <!--现在的票数:<p id="curscore"></p>-->
                 要修改的票数<input type="text" name="score" value="0" width="100px" required/><br/>
             <input type="submit" value="修改"/>
             </form>
         </div>
-        {{ get_flashed_messages() }}
-
         <!--功能2:上传一个Excel文件到文件夹，这个文件用于修改数据库-->
         <div class="uploadexcel">
+            <p style="text-color:green;text-align:center;font-size:20px">上传新的寝室数据</p>
             <form id="excelupload" enctype="multipart/form-data" action="{{ url_for('uploadexcel') }}" method="post">
                 <p>你上传的文件必须是excel文件</p>
                 <input id="excelfile" type="file" name="excelfile"/>
@@ -45,13 +45,20 @@
         </div>
         <!--功能3：上传寝室图片-->
         <div class="uploadimage">
+            <p style="text-color:green;text-align:center;font-size:20px">上传寝室图片</p>
             <form id="imgupload" enctype="multipart/form-data" action="{{ url_for('uploadimg') }}" method="post">
                 你想要上传哪个宿舍的图片呢？<input name="docname" id="docname" type="text" placeholder="例如C3C610"/>
                 <input type="file" name="docimg" id="docimg"/>
                 <input type="submit" value="上传图片" id="imgsubmit">
             </form>
         </div>
+        <div class="cleardomimages">
+            <form id="cleardomimages" action="{{ url_for('clearimages') }}" method="post">
+                <input id='clearsubmit' type="submit" value="点击这里删除所有的宿舍图片"/>
+            </form>
+        </div>
     </div>
+    {{ get_flashed_messages()[0] }}
     <!--js-->
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
     <script>
@@ -74,6 +81,9 @@
             {% endif %}
             {% if get_flashed_messages()[0] == 'file format error' %}
                 window.alert("文件必须是excel文件(.xlsx,.xls)");
+            {% endif %}
+            {% if get_flashed_messages()[0] == 'excel not format' %}
+                window.alert("excel文件的格式不对");
             {% endif %}
             {% if get_flashed_messages()[0] == 'save success' %}
                 window.alert("文件上传成功");
@@ -110,6 +120,19 @@
              {% if get_flashed_messages()[0] == 'excel file not found'%}
                 window.alert("没有上传的excel可以进行处理");
              {% endif %}
+            });
+
+            //clear domitations images
+
+            {% if get_flashed_messages()[0] == 'images delete' %}
+                window.alert('图片删除成功');
+            {% endif %}
+
+            $("#clearsubmit").click(function(){
+                if(window.confirm("要删除以前的所有宿舍的照片吗?")==true)
+                    $("#cleardomimages").submit();
+                else
+                    window.alert("删除取消了");
             });
         });
     </script>

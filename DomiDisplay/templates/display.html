@@ -15,7 +15,7 @@
 <body class="context">
     <!--title bar-->
     <div class="titlebar">
-        <img src="{{  url_for('static',filename='./images/img') }}/logo.jpeg" alt="logo" width="40px" height="40px"/>
+        <img src="{{  url_for('static',filename='./images/img') }}/logo.png" alt="logo" width="40px" height="40px"/>
         <p>安徽理工大学宿舍评比——宿舍图片展览</p>
         <a href="{{ url_for('homepage') }}">点击回到主页</a>
     </div>
@@ -26,8 +26,8 @@
     <!-- images -->
     {% for img in images %}
     <div class="imgdiv" align="center">
-        <img src="{{ url_for('static',filename='./images') }}/{{ dominame }}/{{ img }}" alt="image"/>
+        <img src="{{ url_for('static',filename= root_path ) }}/{{ img }}" alt="image"/>
     </div>
-    {% endfor%}
+    {% endfor %}
 </body>
 </html>

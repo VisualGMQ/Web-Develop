@@ -10,3 +10,4 @@ def refactoryDomits(refactoryFilePath,dbpath):
         cursor.execute(command)
         db.commit()
     db.close()
+    return True

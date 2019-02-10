@@ -17,7 +17,21 @@
 }
 
 .tooltable{
-    width:100%;
+    height:100%;
+    cellspacing:200px;
+}
+
+.tooltable tr td{
+    border-right-style:solid;
+    border-right-color:yellow;
+}
+
+.toolbar .tooltable .retHomepage{
+    border-style:solid;
+    border-width:1px;
+    text-decoration:none;
+    border-radius:5px;
+    background-color:Sliver;
 }
 
 .context{
@@ -61,7 +75,7 @@
     width:70%;
     margin:0 auto;
     margin-top:25px;
-    background-color:#007fff;
+    background-color:#79CDCD;
     height:50px;
     display:none;
     opacity:0.5;
@@ -89,19 +103,20 @@
     width:50%;
 }
 
+.docrank{
+    text-color:#EDEDED;
+}
+
 .docli a:hove{
     text-decoration:none;
-    color:#ff6600;
 }
 
 .docli a:link{
     text-decoration:none;
-    color:#ffc299;
 }
 
 .docli a:visited{
     text-decoration:none;
-    color:#ffc299;
 }
 
 .docli,.scoreli{
@@ -111,16 +126,20 @@
 }
 
 .docli p{
-    color:#00ffff;
+    color:#006400;
     display:inline;
 }
 
 .scoreli p{
-    color:#40ff00;
+    color:#0000CD;
     display:inline;
 }
 
 .scorep{
     color:#ff0080;
     display:inline;
+}
+
+#domhref{
+    text-decoration:none;
 }

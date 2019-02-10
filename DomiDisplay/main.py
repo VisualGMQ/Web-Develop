@@ -1,7 +1,9 @@
-from flask import Flask,url_for,render_template,session,request,redirect,flash,app
+from flask import Flask,url_for,render_template,session,request,redirect,flash
 from werkzeug.utils import secure_filename
 import sqlite3
+import pandas as pd
 import os
+import shutil
 import pandas
 from database.initDomits import refactoryDomits
 from datetime import timedelta
@@ -10,6 +12,7 @@ app = Flask(__name__)
 app.config['SECRET_KEY'] = os.urandom(24)
 app.config['SEND_FILE_MAX_AGE_DEFAULT'] = timedelta(seconds=1)
 app.config['DATABASE'] = './database/'
+app.config['DOMITSIMAGES'] = './static/images/domits/'
 
 #用于在数据库查询当中配合where句
 def _tDB(string):
@@ -108,6 +111,10 @@ def upLoadExcel():
             flash('file format error')
             return redirect(url_for('modify'))
         file.save(os.getcwd() + "/files/" + filename)
+        df = pd.read_excel(os.getcwd() + "/files/" + filename)
+        if '宿舍' not in df or '分数' not in df:
+            flash('excel not format')
+            return redirect(url_for('modify'))
         flash('save success')
         session['excel'] = os.getcwd() + "/files/" + filename
 
@@ -127,7 +134,7 @@ def uploadImage():
             flash('no doc')
             return redirect(url_for('modify'))
         docname = request.form['docname'].upper()
-        imgpath = './static/images/'+docname
+        imgpath = app.config['DOMITSIMAGES'] + docname
         if not os.path.exists(imgpath):
             os.makedirs(imgpath)
         imgfile.save(imgpath+'/'+imgname)
@@ -146,13 +153,21 @@ def modifyDomits(filename):
 def homepage():
     db = sqlite3.connect(app.config['DATABASE']+"domis.db")
     sortway=1
-    global info
+    isTextSearch = False
+    info = []
+    rank = None
+    rank = None
     if request.method == 'POST':
         #依据文本框输入查找寝室
         if 'searchdom' in request.form:
             searchinfo = searchDB(db,'domits',condition = ("name=%s" % _tDB(request.form.get('searchdom', 'null').upper())),cols='score',fetch = 1)
             info = [(request.form.get('searchdom','null'),searchinfo[0] if searchinfo!=None else 'NAN')]    #三目表达式
-         #按照下拉列表排序寝室
+            orderinfo = searchDB(db,'domits',cols = 'name',OrderBy = 'score', isDesc=True)
+            for k,i in enumerate(orderinfo):
+                if i[0]==request.form['searchdom']:
+                    rank = k
+            isTextSearch = True
+        #按照下拉列表排序寝室
         if 'sortway' in request.form:
             if request.form['sortway'] == 'byscore':
                 info = searchDB(db, 'domits', OrderBy='score', isDesc=True, cols='name,score')
@@ -164,15 +179,15 @@ def homepage():
         #显示全部寝室
         info = searchDB(db,'domits',OrderBy='score',isDesc=True,cols='name,score')
     db.close()
-    return render_template('homepage.html',infoes=info,sortway=sortway)
+    return render_template('homepage.html',infoes=info,sortway=sortway,isTextSearch = isTextSearch,rank=rank)
 
 @app.route('/display/<dominame>')
 def displayDom(dominame):
-    root_path = './static/images/'+dominame
-    global images
+    root_path = app.config['DOMITSIMAGES']+dominame
     images = []
     for root, dirs, files in os.walk(root_path):
         images += files
+    root_path = root_path.replace('./static/', "")
     return render_template('display.html',dominame = dominame,root_path=root_path,images=images)
 
 @app.route('/modify/',methods=['GET','POST'])
@@ -222,7 +237,8 @@ def logout():
 @app.route('/modify/uploadexcel/', methods=['POST'])
 def uploadexcel():
     upLoadExcel()
-    refactoryDomits(session['excel'],app.config['DATABASE'])
+    if 'excel' in session:
+        refactoryDomits(session['excel'],app.config['DATABASE'])
     return redirect(url_for('modify'))
 
 @app.route('/modify/uploadimg/', methods=['POST'])
@@ -241,6 +257,16 @@ def domrefact():
             flash('excel file not found')
     return redirect(url_for('modify'))
 '''
+
+@app.route('/modify/clearimages/',methods=['POST'])
+def clearimages():
+    if request.method == 'POST':
+        for ele in os.listdir(app.config['DOMITSIMAGES']):
+            if os.path.isdir(app.config['DOMITSIMAGES']+ele):
+                shutil.rmtree(app.config['DOMITSIMAGES']+ele)
+        flash('images delete')
+    return redirect(url_for('modify'))
+
 
 @app.errorhandler(404)
 def page_not_found(error):
