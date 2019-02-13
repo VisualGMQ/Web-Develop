@@ -1,3 +1,9 @@
+'''
+author :VisualGMQ
+qq-mail:2142587070@qq.com
+
+data:2019.1.10
+'''
 from flask import Flask,url_for,render_template,session,request,redirect,flash
 from werkzeug.utils import secure_filename
 import sqlite3
