@@ -1,0 +1,104 @@
+\hypertarget{group___xE6_x95_xB0_xE6_x8D_xAE_xE5_xBA_x93_xE6_x93_x8D_xE4_xBD_x9C}{}\section{数据库操作}
+\label{group___xE6_x95_xB0_xE6_x8D_xAE_xE5_xBA_x93_xE6_x93_x8D_xE4_xBD_x9C}\index{数据库操作@{数据库操作}}
+
+
+包含对数据库的操作  
+
+
+\subsection*{命名空间}
+\begin{DoxyCompactItemize}
+\item 
+ \mbox{\hyperlink{namespacemain}{main}}
+\begin{DoxyCompactList}\small\item\em 程序的主文件，代码在此运行 \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{函数}
+\begin{DoxyCompactItemize}
+\item 
+def \mbox{\hyperlink{group___xE6_x95_xB0_xE6_x8D_xAE_xE5_xBA_x93_xE6_x93_x8D_xE4_xBD_x9C_ga7cf18932eaa3e3b83f60132e1de06e82}{init\+Domits.\+refactory\+Domits}} (refactory\+File\+Path, dbpath)
+\begin{DoxyCompactList}\small\item\em 重写domis数据库 \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{group___xE6_x95_xB0_xE6_x8D_xAE_xE5_xBA_x93_xE6_x93_x8D_xE4_xBD_x9C_gab6a167211fea45f940088aa25e470456}{init\+Domits.\+\_\+t\+DB}} (string)
+\begin{DoxyCompactList}\small\item\em 在字符串最外面加上双引号 \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{group___xE6_x95_xB0_xE6_x8D_xAE_xE5_xBA_x93_xE6_x93_x8D_xE4_xBD_x9C_gab0b2210b38aa2decfc4f09e122f949bf}{init\+Domits.\+search\+DB}} (db, table, condition=\char`\"{}\char`\"{}, fetch=-\/1, cols=\textquotesingle{} $\ast$\textquotesingle{}, Order\+By=None, is\+Desc=False)
+\begin{DoxyCompactList}\small\item\em 数据库查找函数 \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{详细描述}
+包含对数据库的操作 
+
+
+
+\subsection{函数说明}
+\mbox{\Hypertarget{group___xE6_x95_xB0_xE6_x8D_xAE_xE5_xBA_x93_xE6_x93_x8D_xE4_xBD_x9C_gab6a167211fea45f940088aa25e470456}\label{group___xE6_x95_xB0_xE6_x8D_xAE_xE5_xBA_x93_xE6_x93_x8D_xE4_xBD_x9C_gab6a167211fea45f940088aa25e470456}} 
+\index{数据库操作@{数据库操作}!\_tDB@{\_tDB}}
+\index{\_tDB@{\_tDB}!数据库操作@{数据库操作}}
+\subsubsection{\texorpdfstring{\_tDB()}{\_tDB()}}
+{\footnotesize\ttfamily def init\+Domits.\+\_\+t\+DB (\begin{DoxyParamCaption}\item[{}]{string }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+在字符串最外面加上双引号 
+
+
+\begin{DoxyParams}{参数}
+{\em string} & 要加上双引号的字符串 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+加上双引号的string 
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{参见}
+\mbox{\hyperlink{group___xE6_x95_xB0_xE6_x8D_xAE_xE5_xBA_x93_xE6_x93_x8D_xE4_xBD_x9C_gab0b2210b38aa2decfc4f09e122f949bf}{search\+D\+B()}}
+\end{DoxySeeAlso}
+这个函数用来给字符串最外面加上双引号，用于配合数据库查找函数来进行字符串拼接。 \mbox{\Hypertarget{group___xE6_x95_xB0_xE6_x8D_xAE_xE5_xBA_x93_xE6_x93_x8D_xE4_xBD_x9C_ga7cf18932eaa3e3b83f60132e1de06e82}\label{group___xE6_x95_xB0_xE6_x8D_xAE_xE5_xBA_x93_xE6_x93_x8D_xE4_xBD_x9C_ga7cf18932eaa3e3b83f60132e1de06e82}} 
+\index{数据库操作@{数据库操作}!refactoryDomits@{refactoryDomits}}
+\index{refactoryDomits@{refactoryDomits}!数据库操作@{数据库操作}}
+\subsubsection{\texorpdfstring{refactoryDomits()}{refactoryDomits()}}
+{\footnotesize\ttfamily def init\+Domits.\+refactory\+Domits (\begin{DoxyParamCaption}\item[{}]{refactory\+File\+Path,  }\item[{}]{dbpath }\end{DoxyParamCaption})}
+
+
+
+重写domis数据库 
+
+
+\begin{DoxyParams}{参数}
+{\em refactory\+File\+Path} & 重写需要的文件路径 \\
+\hline
+{\em dbpath} & 要重写的数据库路径 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+修改成功返回\+True
+\end{DoxyReturn}
+这个函数在用户上传数据库模版文件的时候触发，根据上传的excel文件修改domis.\+db数据库 \mbox{\Hypertarget{group___xE6_x95_xB0_xE6_x8D_xAE_xE5_xBA_x93_xE6_x93_x8D_xE4_xBD_x9C_gab0b2210b38aa2decfc4f09e122f949bf}\label{group___xE6_x95_xB0_xE6_x8D_xAE_xE5_xBA_x93_xE6_x93_x8D_xE4_xBD_x9C_gab0b2210b38aa2decfc4f09e122f949bf}} 
+\index{数据库操作@{数据库操作}!searchDB@{searchDB}}
+\index{searchDB@{searchDB}!数据库操作@{数据库操作}}
+\subsubsection{\texorpdfstring{searchDB()}{searchDB()}}
+{\footnotesize\ttfamily def init\+Domits.\+search\+DB (\begin{DoxyParamCaption}\item[{}]{db,  }\item[{}]{table,  }\item[{}]{condition = {\ttfamily \char`\"{}\char`\"{}},  }\item[{}]{fetch = {\ttfamily -\/1},  }\item[{}]{cols = {\ttfamily \textquotesingle{}$\ast$\textquotesingle{}},  }\item[{}]{Order\+By = {\ttfamily None},  }\item[{}]{is\+Desc = {\ttfamily False} }\end{DoxyParamCaption})}
+
+
+
+数据库查找函数 
+
+
+\begin{DoxyParams}{参数}
+{\em condition} & 给出查找条件，条件中不需要加上\+W\+H\+E\+R\+E，会自动将这个参数和\+W\+H\+E\+R\+E语句拼接 \\
+\hline
+{\em fetch} & 决定cursor获得多少数据：
+\begin{DoxyItemize}
+\item 1：执行.\+fetchone()获取一条数据
+\item $>$1：执行.\+fetchmany()获取多条数据
+\item $<$1：执行.\+fetchall()获取所有数据 默认为-\/1 
+\end{DoxyItemize}\\
+\hline
+{\em table} & 要查找的表名 \\
+\hline
+{\em cols} & 要匹配的列名，默认为全部匹配 \\
+\hline
+{\em Order\+By} & 是否按序查找，默认不按序查找。可以传入按序的列名（只能按照一列） \\
+\hline
+{\em is\+Desc} & 在按序查找的情况下是否降序查找，默认为\+False \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+返回查询结果，使用元组返回
+\end{DoxyReturn}
+如果db为\+None，那么函数会通过你给出的参数来进行一次性查询（在内部打开和关闭数据库）。 如果db为已经生成的数据库链接，那么查询之后不会关闭数据库。 

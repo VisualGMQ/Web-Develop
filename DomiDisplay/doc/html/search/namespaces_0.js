@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['initdomits',['initDomits',['../namespaceinit_domits.html',1,'']]]
+  ['app',['App',['../namespace_app.html',1,'']]]
 ];

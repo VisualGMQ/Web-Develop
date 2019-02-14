@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['路由函数',['路由函数',['../group___xE8_xB7_xAF_xE7_x94_xB1_xE5_x87_xBD_xE6_x95_xB0.html',1,'']]]
+  ['数据库操作',['数据库操作',['../group___xE6_x95_xB0_xE6_x8D_xAE_xE5_xBA_x93_xE6_x93_x8D_xE4_xBD_x9C.html',1,'']]]
 ];

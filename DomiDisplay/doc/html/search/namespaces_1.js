@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['main',['main',['../namespacemain.html',1,'']]]
+  ['initdomits',['initDomits',['../namespaceinit_domits.html',1,'']]]
 ];

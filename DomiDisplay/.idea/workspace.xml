@@ -2,11 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e2e447c4-e16f-4f61-be72-e9e0b9d5fc51" name="Default" comment="">
+      <change beforePath="" afterPath="$PROJECT_DIR$/static/display.css" />
       <change beforePath="" afterPath="$PROJECT_DIR$/static/modify.css" />
       <change beforePath="$PROJECT_DIR$/database/docTemplate.xlsx" afterPath="$PROJECT_DIR$/database/docTemplate.xlsx" />
       <change beforePath="$PROJECT_DIR$/database/domis.db" afterPath="$PROJECT_DIR$/database/domis.db" />
       <change beforePath="$PROJECT_DIR$/database/initDomits.py" afterPath="$PROJECT_DIR$/database/initDomits.py" />
-      <change beforePath="$PROJECT_DIR$/domis.db" afterPath="$PROJECT_DIR$/static/display.css" />
+      <change beforePath="$PROJECT_DIR$/domis.db" afterPath="$PROJECT_DIR$/App.py" />
       <change beforePath="$PROJECT_DIR$/files/docTemplate.xlsx" afterPath="" />
       <change beforePath="$PROJECT_DIR$/main.py" afterPath="$PROJECT_DIR$/main.py" />
       <change beforePath="$PROJECT_DIR$/static/homepage.css" afterPath="$PROJECT_DIR$/static/homepage.css" />
@@ -36,10 +37,22 @@
       <file leaf-file-name="main.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/main.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-231">
-              <caret line="21" column="19" lean-forward="true" selection-start-line="21" selection-start-column="19" selection-end-line="21" selection-end-column="19" />
+            <state relative-caret-position="280">
+              <caret line="284" column="18" lean-forward="true" selection-start-line="284" selection-start-column="18" selection-end-line="284" selection-end-column="18" />
               <folding>
                 <element signature="e#62#140#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="App.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/App.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="345">
+              <caret line="15" column="22" lean-forward="false" selection-start-line="15" selection-start-column="22" selection-end-line="15" selection-end-column="22" />
+              <folding>
+                <element signature="e#67#90#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -48,9 +61,11 @@
       <file leaf-file-name="initDomits.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/database/initDomits.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="483">
-              <caret line="22" column="0" lean-forward="false" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
-              <folding />
+            <state relative-caret-position="1403">
+              <caret line="61" column="43" lean-forward="true" selection-start-line="61" selection-start-column="43" selection-end-line="61" selection-end-column="43" />
+              <folding>
+                <element signature="e#39#53#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -87,8 +102,9 @@
         <option value="$PROJECT_DIR$/templates/display.html" />
         <option value="$PROJECT_DIR$/templates/login.html" />
         <option value="$PROJECT_DIR$/templates/modify.html" />
-        <option value="$PROJECT_DIR$/database/initDomits.py" />
         <option value="$PROJECT_DIR$/codes/main.py" />
+        <option value="$PROJECT_DIR$/App.py" />
+        <option value="$PROJECT_DIR$/database/initDomits.py" />
         <option value="$PROJECT_DIR$/main.py" />
       </list>
     </option>
@@ -114,6 +130,7 @@
     </navigator>
     <panes>
       <pane id="Scratches" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -130,7 +147,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -266,23 +282,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/main.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3956">
-          <caret line="179" column="14" lean-forward="false" selection-start-line="179" selection-start-column="4" selection-end-line="179" selection-end-column="14" />
-          <folding>
-            <element signature="e#62#140#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/modify.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="782">
-          <caret line="34" column="16" lean-forward="false" selection-start-line="34" selection-start-column="16" selection-end-line="34" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/static/homepage.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="230">
@@ -596,18 +595,38 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/static/images/domits/C3C620/swoll1.bmp" />
+    <entry file="file://$PROJECT_DIR$/Doxyfile">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/database/initDomits.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="483">
-          <caret line="22" column="0" lean-forward="false" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
-          <folding />
+        <state relative-caret-position="1403">
+          <caret line="61" column="43" lean-forward="true" selection-start-line="61" selection-start-column="43" selection-end-line="61" selection-end-column="43" />
+          <folding>
+            <element signature="e#39#53#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/App.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="345">
+          <caret line="15" column="22" lean-forward="false" selection-start-line="15" selection-start-column="22" selection-end-line="15" selection-end-column="22" />
+          <folding>
+            <element signature="e#67#90#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/main.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-231">
-          <caret line="21" column="19" lean-forward="true" selection-start-line="21" selection-start-column="19" selection-end-line="21" selection-end-column="19" />
+        <state relative-caret-position="280">
+          <caret line="284" column="18" lean-forward="true" selection-start-line="284" selection-start-column="18" selection-end-line="284" selection-end-column="18" />
           <folding>
             <element signature="e#62#140#0" expanded="true" />
           </folding>

@@ -8,10 +8,6 @@
 \subsection*{函数}
 \begin{DoxyCompactItemize}
 \item 
-def \mbox{\hyperlink{namespacemain_a39677d63980368745619bcd32200e768}{\+\_\+t\+DB}} (string)
-\begin{DoxyCompactList}\small\item\em 在字符串最外面加上双引号 \end{DoxyCompactList}\item 
-def \mbox{\hyperlink{namespacemain_a8349c6affc6efc18c9afef83fec85e48}{search\+DB}} (db, table, condition=\char`\"{}\char`\"{}, fetch=-\/1, cols=\textquotesingle{} $\ast$\textquotesingle{}, Order\+By=None, is\+Desc=False)
-\begin{DoxyCompactList}\small\item\em 数据库查找函数 \end{DoxyCompactList}\item 
 def \mbox{\hyperlink{namespacemain_ac89e4341171325314c0685e7f49d8015}{do\+Login}} (username, password)
 \begin{DoxyCompactList}\small\item\em 检查用户名和密码是否正确 \end{DoxyCompactList}\item 
 def \mbox{\hyperlink{namespacemain_a4f4216d6a8208604c32b24da5feeaf68}{change\+Score}} (dom, score)
@@ -47,10 +43,6 @@ def \mbox{\hyperlink{group___xE8_xB7_xAF_xE7_x94_xB1_xE5_x87_xBD_xE6_x95_xB0_ga9
 \subsection*{变量}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{namespacemain_a03b6adcdf574a0b20c970691677129e0}{app}} = Flask(\+\_\+\+\_\+name\+\_\+\+\_\+)
-\begin{DoxyCompactList}\small\item\em 网站的app，里面保存着配置和功能(详见flask) \end{DoxyCompactList}\item 
-\mbox{\hyperlink{namespacemain_a7ef04f98330fea890d64128141b0c6be}{seconds}}
-\item 
 \mbox{\hyperlink{group___xE8_xB7_xAF_xE7_x94_xB1_xE5_x87_xBD_xE6_x95_xB0_gad0a71fa7b4080e971323a6c3b1c16331}{methods}}
 \item 
 \mbox{\hyperlink{namespacemain_a800974c07a8e7de9888fff8cd98a827e}{debug}}
@@ -66,28 +58,7 @@ Visual\+G\+MQ
 
 
 \subsection{函数说明}
-\mbox{\Hypertarget{namespacemain_a39677d63980368745619bcd32200e768}\label{namespacemain_a39677d63980368745619bcd32200e768}} 
-\index{main@{main}!\_tDB@{\_tDB}}
-\index{\_tDB@{\_tDB}!main@{main}}
-\subsubsection{\texorpdfstring{\_tDB()}{\_tDB()}}
-{\footnotesize\ttfamily def main.\+\_\+t\+DB (\begin{DoxyParamCaption}\item[{}]{string }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
-
-
-
-在字符串最外面加上双引号 
-
-
-\begin{DoxyParams}{参数}
-{\em string} & 要加上双引号的字符串 \\
-\hline
-\end{DoxyParams}
-\begin{DoxyReturn}{返回}
-加上双引号的string 
-\end{DoxyReturn}
-\begin{DoxySeeAlso}{参见}
-\mbox{\hyperlink{namespacemain_a8349c6affc6efc18c9afef83fec85e48}{search\+D\+B()}}
-\end{DoxySeeAlso}
-这个函数用来给字符串最外面加上双引号，用于配合数据库查找函数来进行字符串拼接。 \mbox{\Hypertarget{namespacemain_a4f4216d6a8208604c32b24da5feeaf68}\label{namespacemain_a4f4216d6a8208604c32b24da5feeaf68}} 
+\mbox{\Hypertarget{namespacemain_a4f4216d6a8208604c32b24da5feeaf68}\label{namespacemain_a4f4216d6a8208604c32b24da5feeaf68}} 
 \index{main@{main}!changeScore@{changeScore}}
 \index{changeScore@{changeScore}!main@{main}}
 \subsubsection{\texorpdfstring{changeScore()}{changeScore()}}
@@ -175,40 +146,7 @@ Visual\+G\+MQ
 \subsubsection{\texorpdfstring{modifyDomits()}{modifyDomits()}}
 {\footnotesize\ttfamily def main.\+modify\+Domits (\begin{DoxyParamCaption}\item[{}]{filename }\end{DoxyParamCaption})}
 
-\mbox{\Hypertarget{namespacemain_a8349c6affc6efc18c9afef83fec85e48}\label{namespacemain_a8349c6affc6efc18c9afef83fec85e48}} 
-\index{main@{main}!searchDB@{searchDB}}
-\index{searchDB@{searchDB}!main@{main}}
-\subsubsection{\texorpdfstring{searchDB()}{searchDB()}}
-{\footnotesize\ttfamily def main.\+search\+DB (\begin{DoxyParamCaption}\item[{}]{db,  }\item[{}]{table,  }\item[{}]{condition = {\ttfamily \char`\"{}\char`\"{}},  }\item[{}]{fetch = {\ttfamily -\/1},  }\item[{}]{cols = {\ttfamily \textquotesingle{}$\ast$\textquotesingle{}},  }\item[{}]{Order\+By = {\ttfamily None},  }\item[{}]{is\+Desc = {\ttfamily False} }\end{DoxyParamCaption})}
-
-
-
-数据库查找函数 
-
-
-\begin{DoxyParams}{参数}
-{\em condition} & 给出查找条件，条件中不需要加上\+W\+H\+E\+R\+E，会自动将这个参数和\+W\+H\+E\+R\+E语句拼接 \\
-\hline
-{\em fetch} & 决定cursor获得多少数据：
-\begin{DoxyItemize}
-\item 1：执行.\+fetchone()获取一条数据
-\item $>$1：执行.\+fetchmany()获取多条数据
-\item $<$1：执行.\+fetchall()获取所有数据 默认为-\/1 
-\end{DoxyItemize}\\
-\hline
-{\em table} & 要查找的表名 \\
-\hline
-{\em cols} & 要匹配的列名，默认为全部匹配 \\
-\hline
-{\em Order\+By} & 是否按序查找，默认不按序查找。可以传入按序的列名（只能按照一列） \\
-\hline
-{\em is\+Desc} & 在按序查找的情况下是否降序查找，默认为\+False \\
-\hline
-\end{DoxyParams}
-\begin{DoxyReturn}{返回}
-返回查询结果，使用元组返回
-\end{DoxyReturn}
-如果db为\+None，那么函数会通过你给出的参数来进行一次性查询（在内部打开和关闭数据库）。 如果db为已经生成的数据库链接，那么查询之后不会关闭数据库。 \mbox{\Hypertarget{namespacemain_a7f709147939b2c6005d8efdddff85f7b}\label{namespacemain_a7f709147939b2c6005d8efdddff85f7b}} 
+\mbox{\Hypertarget{namespacemain_a7f709147939b2c6005d8efdddff85f7b}\label{namespacemain_a7f709147939b2c6005d8efdddff85f7b}} 
 \index{main@{main}!uploadExcel@{uploadExcel}}
 \index{uploadExcel@{uploadExcel}!main@{main}}
 \subsubsection{\texorpdfstring{uploadExcel()}{uploadExcel()}}
@@ -237,25 +175,9 @@ Visual\+G\+MQ
 上传用户选择的图片 
 
 \subsection{变量说明}
-\mbox{\Hypertarget{namespacemain_a03b6adcdf574a0b20c970691677129e0}\label{namespacemain_a03b6adcdf574a0b20c970691677129e0}} 
-\index{main@{main}!app@{app}}
-\index{app@{app}!main@{main}}
-\subsubsection{\texorpdfstring{app}{app}}
-{\footnotesize\ttfamily main.\+app = Flask(\+\_\+\+\_\+name\+\_\+\+\_\+)}
-
-
-
-网站的app，里面保存着配置和功能(详见flask) 
-
 \mbox{\Hypertarget{namespacemain_a800974c07a8e7de9888fff8cd98a827e}\label{namespacemain_a800974c07a8e7de9888fff8cd98a827e}} 
 \index{main@{main}!debug@{debug}}
 \index{debug@{debug}!main@{main}}
 \subsubsection{\texorpdfstring{debug}{debug}}
 {\footnotesize\ttfamily main.\+debug}
-
-\mbox{\Hypertarget{namespacemain_a7ef04f98330fea890d64128141b0c6be}\label{namespacemain_a7ef04f98330fea890d64128141b0c6be}} 
-\index{main@{main}!seconds@{seconds}}
-\index{seconds@{seconds}!main@{main}}
-\subsubsection{\texorpdfstring{seconds}{seconds}}
-{\footnotesize\ttfamily main.\+seconds}
 
