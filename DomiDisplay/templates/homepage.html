@@ -17,9 +17,10 @@
     <!--welcome image-->
     <div class="img">
         <img class="logoimg" src="{{ url_for('static',filename='./images/img')}}/logo.png" alt="logo" width="120px" height="120px"/>
-            <p><b>安徽理工大学学生宿舍比分</b></p>
+            <p><b>安徽理工大学文明宿舍评比</b></p>
         <img class="bgimg" src="{{url_for('static',filename='./images/img')}}/bgimg.jpg" alt="bgimage" width="100%" height="350px"/>
      </div>
+
     <!--tool bar-->
     <div class="toolbar">
         <!--search bar-->
@@ -59,39 +60,66 @@
     </div>
 
     <!--the table of score of domits-->
-        {% for dom in infoes %}
 
-            {% if loop.index <=3 and isTextSearch==False %}
-            <a id="domhref" href="{{ url_for('displayDom',dominame= dom[0] ) }}">
-            {% endif %}
-
-            {% if loop.index == 1 and sortway==1 and isTextSearch==False %}
-            <div class="docbox" style="background-color:#FFB90F">
-            {% elif loop.index == 2 and sortway==1 and isTextSearch==False %}
-            <div class="docbox" style="background-color:Silver">
-            {% elif loop.index == 3 and sortway==1 and isTextSearch==False %}
-            <div class="docbox" style="background-color:#4876FF">
+    {% macro addCell(index) %}
+        <div class="docrank">
+            {% if sortway != 2 %}
+            {% if rank != None %}
+                排名:{{ rank }}
             {% else %}
-            <div class="docbox">
+                排名:{{ index+1 }}
             {% endif %}
-                <div class="docrank">
-                {% if sortway != 2 %}
-                {% if rank != None %}
-                    排名:{{ rank }}
-                {% else %}
-                    排名:{{ loop.index }}
-                {% endif %}
-                {% endif %}
-                </div>
-                    <ul class="docul" align="center">
-                        <li class="docli"><p>寝室号:</p>{{ dom[0] }}
-                        <li class="scoreli"><p><b>票数:</b></p><p class="scorep">{{ dom[1] }}</p></li>
-                    </ul>
-            </div>
+            {% endif %}
+        </div>
+            <ul class="docul" align="center">
+                <li class="docli"><p>寝室号:</p>{{ infoes[index][0] }}
+                <li class="scoreli"><p><b>荣誉次数:</b></p><p class="scorep">{{ infoes[index][1] }}</p></li>
+            </ul>
+        </div>
+    {% endmacro %}
 
-            {% if loop.index <=3 and isTextSearch==False %}
-            </a>
-            {% endif %}
-        {% endfor %}
+    {# a macro to add colume #}
+    {% macro addColumn(domindex,i) %}
+        {% set index = domindex*3+i %}
+        <td>
+        {% if index <3 and isTextSearch==False %}
+        <a id="domhref" href="{{ url_for('displayDom',dominame = infoes[index][0] ) }}">
+        {% endif %}
+
+        {% if index == 0 and sortway==1 and isTextSearch==False %}
+        <div class="docbox" style="background-color:#FFB90F">
+        {% elif index == 1 and sortway==1 and isTextSearch==False %}
+        <div class="docbox" style="background-color:Silver">
+        {% elif index == 2 and sortway==1 and isTextSearch==False %}
+        <div class="docbox" style="background-color:#4876FF">
+        {% else %}
+        <div class="docbox">
+        {% endif %}
+        {{ addCell(index) }}
+        {% if index <3 and isTextSearch==False %}
+        </a>
+        {% endif %}
+        </td>
+    {% endmacro %}
+
+    {# add context in html #}
+    <table class="domtable">
+    {% if isTextSearch==False %}
+    {% set remainIndex=(infoes|count)%3 +1 %}
+    {% for domindex in range(infoes|count//3) %}
+        <tr align="center">
+
+                {{ addColumn(domindex,0) }}
+                {{ addColumn(domindex,1) }}
+                {{ addColumn(domindex,2) }}
+        </tr>
+    {% endfor %}
+    {% else %}
+        <tr align="center">
+                {{ addColumn(0,0) }}
+        </tr>
+    {% endif %}
+
+    </table>
 </body>
 </html>

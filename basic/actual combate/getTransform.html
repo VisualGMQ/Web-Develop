@@ -1,0 +1,23 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>getTransform</title>
+</head>
+<body>
+	<p id="text"></p>
+<script>
+	function onMessage(e){
+			document.getElementById("text").innerHTML = "接收到的消息是："+e;
+		}
+	
+	window.onload = function(){
+		if(typeof window.addEventListener == 'undefined')
+			alert("浏览器不支持消息接受和发送");
+		else{
+			window.addEventListener("message",onMessage,false);
+		}
+	}
+</script>
+</body>
+</html>

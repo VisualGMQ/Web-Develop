@@ -1,0 +1,14 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>infoTransform</title>
+</head>
+	<p>这个网页用于发送时间给<a href="getTransform.html">这个网页</a></p>
+<script>
+	var time = new Date().getHours+":"+new Date().getSeconds();
+	setInterval(window.parent.frames[0].postMessage(time,"*"),1000);
+</script>
+<body>
+</body>
+</html>

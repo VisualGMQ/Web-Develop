@@ -1,0 +1,40 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>location</title>
+</head>
+	<p>获取地理位置的方式：</p>
+	<ul>
+		<li>电脑上网的，通过IP地址获得位置</li>
+		<li>手机上网的，通过手机信号接收塔来获得位置，或者如果内置GPS的话就使用GPS发出载波来定位</li>
+		<li>如果通过无线网上网的，就直接通过无线网位置来获得位置</li>
+	</ul>
+	<p>地理位置获得只能通过js代码来获得，没办法通过html或者css</p>
+	<hr/>
+	<p>如果你要使用静态地图的话，可以从<a href="http://api.map.baidu.com/lbsapi/createmap/index.html">百度地图API</a>来获得百度地图的支持</p>
+<script>
+	//判断浏览器支不支持定位，使用谷歌定位（这里没翻墙，没办法做到）
+	function onError(){
+		alert("定位出错，这次使用的是谷歌定位");
+	}
+	
+	function onSuccess(position){
+		var x = position.coords.latitude;
+		var y = position.coords.longitude;
+		alert("你的经度是+x+","你的纬度是"+y);
+	}
+	
+	function init(){
+		if(navigator.geolocation)
+			navigator.geolocation.getCurrentPosition(onSuccess,onError,options);
+		else
+			alert("你的浏览器不支持定位");
+	}
+	
+	//使用百度地图
+	
+</script>
+<body>
+</body>
+</html>

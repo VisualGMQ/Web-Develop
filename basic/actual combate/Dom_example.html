@@ -1,0 +1,55 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>DOM_example</title>
+</head>
+	<div style="border-style:solid;width: 150px">
+	<form action="" method="post">
+		用户名
+		<input type="text" placeholder="text" required="required"/>
+		密码
+		<input type="password" required="required"/>
+		邮箱
+		<input type="email" placeholder="你的email"/><br/>
+		<input type="submit" value="提交"/>
+		<input type="reset" value="重制"/>
+	</form>		
+	</div>
+	<p>这里不使用p标签的原因是p标签的上下宽度会很大，这样就不美观了</p>
+	<p>你可以设置required属性来强制某些表单必须有值</p>
+	<p>email表单和url表单都会自动验证输入的格式是不是email或者url，就省去了后台的验证</p>
+	<form action="" method="get">
+		这是三个日历，分别可以选择年月日<br/>
+		<input type="date"/><br/>
+		<input type="month"/><br/>
+		<input type="week"/><br/>
+		<input type="time"/>
+	</form>
+	这个可以让你只输入数字<br/>
+	<input type="number"/><br/>
+	<hr/>
+	
+	<p>实例：用户反馈单（你也可以根据需求变成登录的页面）</p>
+	<div style="border-style:solid;width:500px">
+		<h2 align="center">用户反馈单</h2>
+		<form action="" method="post">
+		<p>姓&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;名: <input type="text"/><br/></p>
+		<p>性&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;别: <input type="radio" name="sex"/>男  <input type="radio" name="sex"/>女</p>
+		<p>年&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;龄: <input type="number"/></p>
+		<p>联系电话: <input type="number"/></p>
+		<p>电子邮箱: <input type="email"/></p>
+		<p>请输入你对网站的建议:<br/>
+			<textarea cols="70" rows="10"></textarea><br/>
+			<input type="submit" value="提交"/>
+			<input type="reset" value="重置"/>
+		</p>
+		</form>
+	</div>
+	<p>这里很需要注意的是，p标签上下有宽度，所以如果你想要布局比较紧凑的话就不要用p标签，直接输入文字！！</p>
+	<p>你还要注意字与字之间的对其，直接使用空格对其就可以了</p>
+	
+	<hr/>
+<body>
+</body>
+</html>
