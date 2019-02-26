@@ -1,0 +1,97 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>cssExample</title>
+	<style>
+		.inputbox{
+			border-top-style: none;
+			border-left-style: none;
+			border-right-style: none;
+			border-bottom-style: solid;
+			border-bottom-color: gray;
+		}
+		
+		.roundDiv{
+			border-radius: 100%;
+			border-style: solid;
+			width: 200px;
+		}
+		
+		.formdiv{
+			font-size: 15px;
+		}
+		
+		input{
+			font-size: 15px;
+		}
+		
+		.bsubmit{
+			border-style: none;
+			background-color: transparent;
+		}
+		
+		.role{
+			border-radius: 100%;
+		}
+		
+		.menu{
+			width: 100%;
+			background-color: #6F69F0;
+			list-style: none;
+			height:50px;
+			float: left;
+			margin: 0;
+			padding: 0;
+		}
+		.menu li{
+			display: inline;
+			vertical-align: middle;
+			width: 20%;
+			float: left;
+			text-align: center;
+			border-style: none;
+		}
+		
+		.menu a{
+			display: block;
+			text-align: center;
+			color: white;
+			padding: 14px 10px;
+			text-decoration: none;
+		}
+		
+		.menu a:hover{
+			background-color: #B5C0EF;
+		}
+		
+		.div1{
+			widht: 100%;
+		}
+	</style>
+</head>
+	<p>改变样式的文本输入：</p>
+	<div class="formdiv">你的名字是<input type="text" class="inputbox"/>点击<input type="submit" value="提交" class="bsubmit"/></div>
+	<hr/>
+	<div class="roundDiv" align="center">
+		<img class="role" src="role.jpg" alt="role" align="center"/>
+	</div>
+	<hr/>
+	<p align="center">简单的网页开头</p>
+	<img class="bgImage" src="1.jpg" height="200px" width="100%" alt="background picture" />
+	<!--<div class="div1">-->
+		<ul class="menu">
+			<li><a href="#1">首页</a></li>
+			<li><a href="#1">最新消息</a></li>
+			<li><a href="#1">产品展示</a></li>
+			<li><a href="#1">人才招聘</a></li>
+			<li><a href="#1">关于本站</a></li>
+		</ul>
+	<!--</div>-->
+	<p>这里需要注意的是：菜单栏里面如果你给每个菜单项画了边框，那么设置width的时候就会带上边框的大小，所以那个时候你设置20%就不行了，会有一个菜单项到下面去。这样的话就比较难调控（因为如果你设置19%的话又会有空处的地方），所以我们不建议设置边框。如果你想要设置边框的话，就设置左或者右边框，这样基本看不出来空出来的部分</p>
+	<p>菜单里面的文字（也就是a标签）光通过各种align是没办法对齐的，必须手动调整padding来填充，不然高度只有文字那么高</p>
+	<p>而且你的ul也要设置float才能够使菜单项和菜单在一个水平线上</p>
+	<p>如果你的菜单想有选中状态，你就必须依靠a标签的伪类，那么你就必须在li里面加上a标签。而且一般都会在菜单里面加上a标签</p>
+<body>
+</body>
+</html>
