@@ -1,0 +1,82 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>hello world</title>
+	<link rel="stylesheet" href="jquery-ui-1.12.1.custom/jquery-ui.css"/>
+	<script src="jquery-ui-1.12.1.custom/external/jquery/jquery.js"></script>
+	<script src="jquery-ui-1.12.1.custom/jquery-ui.js"></script>
+	<script>
+		$(document).ready(function(){
+			$("#date").datepicker();
+			$(".pgbar").progressbar({"max":100,"value":0});
+			setInterval(function(){
+				var value = $(".pgbar").progressbar("option","value");
+				if(value>=100)
+					value=0;
+				else
+					value++;
+				$(".pgbar").progressbar({"value":value});
+			},100);
+			$("#jbutton").button();
+			$("#atc").autocomplete({source:["Ada","Basic","B","C","C++","Crystal","D","go","Java"],my:"right top",at:"right bottom",delay:10,appendTo:"#act"});
+			$("#div1").draggable();
+			$("#div2").droppable({drop:function(event,ui){
+					$("#div2").css("border-color","green");
+				},
+								 out:function(event,ui){
+					$("#div2").css("border-color","yellow");					 
+				},
+								 over:function(event,ui){
+					$("#div2").css("border-color","blue");
+				 }});
+			$("#div3").resizable();
+			$("#sul").selectable();
+			$("#stul").sortable();
+		});
+	</script>
+	<style>
+		#div1,#div2,#div3{
+			border-style:solid;
+			border-width: 2px;
+			border-color:black;
+			width:100px;
+			height:100px;
+			background-color:white;
+		}
+		
+		.ui-selected{
+			border-style:solid;
+		}
+	</style>
+</head>
+<body>
+	<p>一些小部件</p>
+	datepicker:<input type="text" name="date" id="date"/><br/>
+	progressbar:<div class="pgbar"></div><br/>
+	button:<a href="http://www.baidu.com" id="jbutton" target="_blank">跳转到百度</a><br/>
+	autocomplete:<input type="text" id="atc"/>
+	<hr/>
+	<p>交互式操作</p>
+	Draggable:<div id="div1">你可以拖动我</div>
+	Droppable:<div id="div2" style="border-color:yellow;width:150px;height:150px">你可以拖动上边的div到我这里面来看看</div>
+	Resizable:<div id="div3" style="border-color:blueviolet"></div>
+	Selectable:
+	<ul id="sul">
+		<li>theme1</li>
+		<li>theme2</li>
+		<li>theme3</li>
+		<li>theme4</li>
+		<li>theme5</li>
+	</ul>
+	<p>这里需要注意的是，给了selectable()函数之后被选中的元素会多出class:ui-selected，你可以为这个类添加你自己的样式来突出选择（默认是没有样式的）</p>
+	Sortable:
+	<ul id="stul">
+		<li>sort1</li>
+		<li>sort2</li>
+		<li>sort3</li>
+		<li>sort4</li>
+		<li>sort5</li>
+	</ul>
+</body>
+</html>
